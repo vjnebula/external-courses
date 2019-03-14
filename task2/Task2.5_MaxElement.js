@@ -9,3 +9,5 @@ function Max (arr) {
 }//Same()
 console.log(Max([1,4,6,3,2,8,7,0]));
 console.log(Max("Ann, Bill, Alice, Marry, Klod, Pol, Jack".split(", ")));
+
+end = "end of script";
