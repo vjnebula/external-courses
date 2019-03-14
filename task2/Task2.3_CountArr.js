@@ -12,3 +12,5 @@ function CountArr (arr) {
 				
 		}//CountArr
 console.log(CountArr([2,3,4,5,6,0]));
+
+end = "end of script";
