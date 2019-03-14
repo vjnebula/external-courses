@@ -9,3 +9,5 @@ function Same (arr) {
 }//Same()
 console.log(Same("Ann, Bill, Alice, Marry, Klod, Ann, Jack".split(", ")));
 console.log(Same("Ann, Bill, Alice, Marry, Klod, Pol, Jack".split(", ")));
+
+end = "end of script";
