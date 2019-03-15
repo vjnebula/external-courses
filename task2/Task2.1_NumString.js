@@ -1,14 +1,16 @@
 function NumStr (b){
-    if (typeof(b) == "number"){
-        return typeof(b);
+	var Btype = typeof(b);
+    if (Btype == "number"){
+        return Btype;
     }
-    if (typeof(b) == "string"){
-        return typeof(b);
+    if (Btype == "string"){
+        return Btype;
     }
     return undefined
 }
 function NumStr2 (c){
-    return ((typeof(c) == "number")||(typeof(c) == "string")) ? typeof(c) : undefined;
+	var Ctype = typeof(c);
+    return ((Ctype == "number")||(Ctype == "string")) ? Ctype : undefined;
     }
 console.log(NumStr("sgsdf"));
 console.log(NumStr(2345));
