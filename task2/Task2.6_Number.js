@@ -1,4 +1,7 @@
 function CheckNum (num) {
+	if ( num == 2) { 
+		alert("простое");
+	return;}
 	if ( num <= 1000 ) {
 		(num % 2 != 0) ? alert("простое") : alert("составное");
 	}
