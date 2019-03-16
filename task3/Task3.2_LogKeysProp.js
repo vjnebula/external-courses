@@ -12,6 +12,7 @@ function LogKeysProp (obj) {
 			else LogKeysProp( obj[prop] );
 		}//for 
 	}//if CheckObj
+	else console.log("not and object");
 }//func LogKeysProp
 var object1 = { prpO1: "string1", prp2O1: 1111 };
 var object2 = { prpO2: "string2", prp2O2: object1 };
