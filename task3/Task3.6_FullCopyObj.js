@@ -30,10 +30,12 @@ var object2 = { prpO2: "string2", prp2O2: object1 };
 var object3 = { prpO3: "string2", prp2O3: object2 };
 
 
-//console.log(CopyObj(object1));
-//console.log(CopyObj(object2));
-console.log(CopyObj(object3));
-//console.log(CopyObj({}));
-//console.log(CopyObj("must be object"));
+var TestObj = CopyObj( object3 );
+console.log( TestObj );
+console.log( TestObj == object3 );
+console.log( TestObj.prp2O3 == object3.prp2O3 );
+console.log( TestObj.prp2O3.prp2O2 == object3.prp2O3.prp2O2 );
+console.log(CopyObj( {} ) );
+console.log(CopyObj( "must be object" ) );
  
 end = "end of script";
