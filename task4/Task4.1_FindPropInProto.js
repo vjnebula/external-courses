@@ -1,8 +1,9 @@
 function FindPropInProto(name, obj) {
 	if (CheckObj(obj)){
-		for ( var prop in obj.__proto__ ) {
+		var proto = Object.getPrototypeOf(obj);
+		for ( var prop in proto ) {
 				if (name == prop){
-					console.log(obj.__proto__[prop])
+					console.log(proto[prop])
 				return true;
 				}//if
 		}//for 
