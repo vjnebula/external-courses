@@ -1,21 +1,9 @@
-function FindPropInObj(name, obj) {
-	if (CheckObj(obj)){
-		for ( var prop in obj ) {
-				if ( name == prop ){
-					
-				return true;
-				}//if
-		}//for 
-		return false;
-	}
-}//func FindPropInObj
-
 function CountStrElement (str) {
 	if ( typeof str == "string" ) {
 		var newObj = { " name": "element counter"};
 		for ( var i = 0; i < str.length; i++) {
 			
-			if ( FindPropInObj(str[i], newObj) ) {
+			if ( newObj[str[i]] !== undefined )  {
 				newObj[str[i]] = newObj[str[i]] + 1;
 				continue;
 			}
