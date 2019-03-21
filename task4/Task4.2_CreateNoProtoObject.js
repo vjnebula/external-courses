@@ -1,6 +1,5 @@
 function CreateNoProtoObject() {
-	var newobject = {};
-	newobject.__proto__ = null;
+	var newobject = Object.create(null);
 	return newobject;
 }//func CreateNoProtoObject
 
