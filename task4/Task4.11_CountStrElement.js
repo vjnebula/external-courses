@@ -5,12 +5,10 @@ function CountStrElement (str) {
 			
 			if ( newObj[str[i]] !== undefined )  {
 				newObj[str[i]] = newObj[str[i]] + 1;
-				continue;
-			}
+			}//if 
+			
 			else { newObj[str[i]] = 1; }
-		
-			
-			
+					
 		}//for i
 		
 		return newObj;
