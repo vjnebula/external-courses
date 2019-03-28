@@ -4,7 +4,7 @@ function makeCalc(){
 	function calc(){
 		return currentState;
 	}
-	calc.result = function() {
+	calc.getResult = function() {
 		return currentState;
 	}
 	
@@ -16,45 +16,34 @@ function makeCalc(){
 		currentState = state;
 	}
 	
-	calc.sum = function Fsum (arg1) {
-		  if (arg1 != undefined) {
-			currentState = currentState + arg1;
-			
-			return function (arg2) { return Fsum(arg2) }
-				
-		  } else { return function (arg2) { return Fsum(arg2); } }
-		
+	calc.add = function Fadd (arg) {
+		  if (arg != undefined) {
+			currentState = currentState + arg;
+		  }
+			return function (arg) { return Fadd(arg) }
 	}
 	
-	calc.div = function Fdiv (arg1) {
-		  if (arg1 != undefined) {
-			currentState = currentState / arg1;
-			
-			return function (arg2) { return Fdiv(arg2) }
-				
-		  } else { return function (arg2) { return Fdiv(arg2); } }
-		
+	calc.divide = function Fdivide (arg) {
+		  if (arg != undefined) {
+			currentState = currentState / arg;
+		  } 
+		 return function (arg) { return Fdivide(arg); } 
 	}
 	
-	calc.sub = function Fsub (arg1) {
-		  if (arg1 != undefined) {
-			currentState = currentState - arg1;
-			
-			return function (arg2) { return Fsub(arg2) }
-				
-		  } else { return function (arg2) { return Fsub(arg2); } }
-		
+	calc.subtract = function Fsubtract (arg) {
+		  if (arg != undefined) {
+		  currentState = currentState - arg;
+		   }
+		return function (arg) {return Fsubtract(arg)};
 	}
 	
-	calc.mult = function Fmult (arg1) {
-		  if (arg1 != undefined) {
-			currentState = currentState * arg1;
-			
-			return function (arg2) { return Fmult(arg2) }
-				
-		  } else { return function (arg2) { return Fmult(arg2); } }
-		
+	calc.multiply = function Fmultiply (arg) {
+		  if (arg != undefined) {
+			currentState = currentState * arg;
+		  } 
+		 return function (arg) { return Fmultiply(arg); } 
 	}
+	
 	return calc;
 	
 	
@@ -65,11 +54,11 @@ calculator.set(1)
 console.log(calculator());
 calculator.reset();
 console.log(calculator());
-calculator.sum()()(2)(3)()()(5)()();
+calculator.add()()(2)(3)()()(5)()();
 console.log(calculator());
-calculator.sub()(4)()(2);
+calculator.subtract()(4)()(2);
 console.log(calculator());
-calculator.mult(3);
+calculator.multiply(3);
 console.log(calculator());
-calculator.div()()(2);
+calculator.divide()()(2);
 console.log(calculator());
