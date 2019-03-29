@@ -20,28 +20,29 @@ function makeCalc(){
 		  if (arg != undefined) {
 			currentState = currentState + arg;
 		  }
-			return function (arg) { return Fadd(arg) }
+		
+		return Fadd;
 	}
 	
 	calc.divide = function Fdivide (arg) {
 		  if (arg != undefined) {
 			currentState = currentState / arg;
 		  } 
-		 return function (arg) { return Fdivide(arg); } 
+		 return Fdivide;
 	}
 	
 	calc.subtract = function Fsubtract (arg) {
 		  if (arg != undefined) {
 		  currentState = currentState - arg;
 		   }
-		return function (arg) {return Fsubtract(arg)};
+		return Fsubtract;
 	}
 	
 	calc.multiply = function Fmultiply (arg) {
 		  if (arg != undefined) {
 			currentState = currentState * arg;
 		  } 
-		 return function (arg) { return Fmultiply(arg); } 
+		 return Fmultiply;
 	}
 	
 	return calc;
