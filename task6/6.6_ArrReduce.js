@@ -1,8 +1,10 @@
 var ArrReduce = function ( arr, callback , initialValue) {
 	var newArr = [];
 	var i = 0;
-	if ( initialValue != undefined ) { previousValue = initialValue; }
-		else { previousValue = arr[0];
+	if ( initialValue != undefined ) { 
+			previousValue = initialValue; 
+		} 	else { 
+				previousValue = arr[0];
 				i = 1; }
 	for (i; i < arr.length; i++) {
 		//console.log(arr[i]);
