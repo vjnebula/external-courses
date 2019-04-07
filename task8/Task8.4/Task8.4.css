@@ -1,0 +1,14 @@
+
+.wrap {
+height: 200px;
+padding: 0px;
+background-color: rgba(25,125,25,0.1);
+}
+.gradient {
+height: 190px; 
+width: 99.5%; 
+margin: 0 auto;
+border: 5px solid transparent;
+border-image: linear-gradient(to right, #F2F7 1%, #ADF2F7 100%);
+border-image-slice: 1;
+}
