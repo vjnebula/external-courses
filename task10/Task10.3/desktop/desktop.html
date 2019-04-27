@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<style>
+		.tbl {
+			display:grid;
+			width: 100%;
+			grid-template-columns: 3fr 1fr;
+			justify-items: stretch;
+			margin-left: auto;
+			margin-right: auto;
+			justify-content: center;
+			align-items:stretch;
+			align-content:center;
+			grid-template-areas:
+			"logo but"
+			"hr hr"
+			"mn mn"
+			"mnpage mnpage";
+		}
+		hr {
+			grid-area:hr;
+			width:100%;
+			margin-bottom:-1px;
+		}
+		#logo {
+			grid-area: logo;
+			
+		}
+		.tcell {
+			display:inline-block;
+			border: 2px solid white;
+		}
+		.mnpage{
+			grid-area: mnpage;
+		}
+		.im{
+			width:100%;
+		}
+		.inpt {
+			position:relative;
+			border:transparent;
+			height:30px;
+			top:5px;
+		}
+		#srch {
+			display:flex;
+			flex-wrap: nowrap;
+			
+			}
+		#buttons {
+			grid-area:but;
+			display:flex;
+			flex-wrap: nowrap;
+			flex-direction:row;
+			align-items:center;
+			justify-content: space-evenly;
+			justify-items: center;
+		}
+		#menu {
+			grid-area:mn;
+			display:flex;
+			flex-wrap: nowrap;
+			align-items:stretch;
+			align-content:center;
+			justify-content: space-evenly;
+			margin-left:10%;
+			color:gray;
+		}
+		.mn_but {
+			display:flex;
+			flex-wrap: nowrap;
+		}
+
+		nobr {
+			padding-top:10px;
+			padding-left:10px;
+		}
+		#point:hover::after {
+			content: attr(data-title);
+			position: relative;
+			left: -50%; 
+			top: 100%;
+		}
+		.r_border {
+			padding-right: 10px;
+			border-right: 1px solid lightgray;
+		}
+	</style>
+</head>
+
+<body>
+	<div class = "tbl">
+			<div id="logo" style="margin-bottom: 50px; margin-left:15%;"><img src="logo.jpg"></div>
+			<div id="buttons">
+				<img src="phone.jpg" class="r_border">
+				<div data-title="Saudi" id="point"><img src="pointGray.jpg" class="r_border"></div>
+				<img src="letter.jpg">
+			</div>
+			<hr>
+			<div id="menu">
+				<div class="mn_but"><nobr class="r_border">Home</nobr></div>
+				<div class="mn_but"><nobr>What about ISAMA</nobr></div>
+				<div class="mn_but"><nobr class="r_border">What we do?</nobr></div>
+				<div class="mn_but"><nobr> Our Projects</nobr></div>
+				<div class="mn_but"><nobr class="r_border">Excellent Team</nobr></div>
+				<div class="mn_but"><nobr>Contact</nobr></div>
+				<div class = "tcell"><label id="srch"><img src="srch.jpg" style="float: left;"><input class="inpt" type="search" placeholder="Type your search words"></label></div>
+			</div>
+			
+			<div class = "mnpage"><img src="main_image.jpg" class="im"></div>
+	</div>
+</body>
+</html>
