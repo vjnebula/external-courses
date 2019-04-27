@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<style>
+		.tbl {
+			display:grid;
+			width: 100%;
+			grid-template-columns: 1fr 1fr 1fr;
+			justify-items: stretch;
+			margin-left: auto;
+			margin-right: auto;
+			justify-content: center;
+			align-items:top;
+			grid-template-areas: 
+			"tp tp tp"
+			"mnpage mnpage mnpage";}
+		}
+		
+		.tcell {
+			display:inline-block;
+			border: 2px solid white;
+			grid-area: tp;
+			align-items:top;
+		}
+		.trow {
+			display:inline-block;
+			justify-items: stretch;
+			justify-content: center;
+			align-content:top;
+		}
+		.mnpage{
+			grid-area: mnpage;
+		}
+		.im{
+			width:100%;
+		}
+		grid-rows:nth-child(1) {
+			background: red;
+		}
+		.inpt {
+			position:relative;
+			border:transparent;
+			height:30px;
+			top:5px;
+			}
+		#srch {
+			display:flex;
+			flex-wrap: nowrap;
+			}
+	</style>
+</head>
+
+<body>
+	<div class = "tbl">
+			<div class = "tcell"><img src="mnu.jpg"></div>
+			<div class = "tcell"><img src="logo.jpg"></div>
+			<div class = "tcell"><label id="srch"><img src="srch.jpg" style="float: left;"><input class="inpt" type="search" placeholder="Type your search words"></label></div>
+			<div class = "mnpage"><img src="mainPageTablet.jpg" class="im"></div>
+	</div>
+</body>
+</html>
