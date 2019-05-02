@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Task11.1</title>
+	<style>
+		/* Код анимации */
+		@keyframes bounce {
+		  0% {right:0%; width:15px;}
+		  5% {width:20px;}
+		  45% {width:20px;}
+		  50% {right:-100%; width:15px;}
+		  55% {width:20px;}
+		  95% {width:20px;}
+		  100% {right:0%;width:15px;}
+		}
+		.parent {
+			width: 70%;
+			height: 70%;
+			display: flex;
+			flex-direction:row;
+			flex-wrap: nowrap;
+		}
+		.block {
+			display:flex;
+			width: 30%;
+			height: 100px;
+			background-color: green;
+		}
+		/* Элемент на который накладывется анимация */
+		#sphere {
+			width:20px;
+			height:20px;
+			border-radius:100%;
+			 background: radial-gradient(circle at 65% 65%, #FEFFFF, #FFA9A1);
+			 position: relative;
+			 animation-name: bounce;
+			 animation-duration: 4s;
+			 animation-timing-function: linear;
+			 animation-iteration-count: infinite;
+		}
+		#space{
+			display:flex;
+			align-items:center;
+			margin-right:15px;
+			width: 30%;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+  <div class="parent">
+	<div class="block"></div>
+	<div id="space">
+		<div id="sphere"></div>
+	</div>
+	<div class="block"></div>
+  </div>
+</body>
+</html>
