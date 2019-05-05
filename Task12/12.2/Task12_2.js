@@ -1,20 +1,26 @@
-function drp () {
-	//console.log( this == );
-	alert(this == myDiv);
+function drp() {
+	//alert(event.target == myDiv);
 	var dropElements = document.getElementsByClassName('dropdown-content');
-	var disp = 'block';
-	if (this == myDiv) {
 	for (var e of dropElements) {
-			e.style.display = disp;
+		e.style.display = 'block';
 	}//for e
-	}
-}//drop
+	
+	myDiv.removeEventListener("click", drp);
+	document.addEventListener("click", drpClose);
+}//drp
 
-function drpClose () {
-	var myDiv = document.getElementById('user');
-	alert(this == myDiv);
-}//drop
+function drpClose() {
+	//alert(event.target.tagName == 'HTML');
+	var dropElements = document.getElementsByClassName('dropdown-content');
+	if (event.target.tagName == 'HTML') {
+	document.removeEventListener("click", drpClose);
+	myDiv.addEventListener("click", drp);
+	for (var e of dropElements) {
+		e.style.display = 'none';
+	}//for e
+	}//if event
+}//dropClose
+
 
 var myDiv = document.getElementById('user');
 myDiv.addEventListener("click", drp);
-document.addEventListener("click", drp);
