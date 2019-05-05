@@ -6,6 +6,18 @@
   <meta name="viewport" content="width=device-width">
   <title>Task11.4</title>
 	<style>
+		@font-face {
+			font-family: Proxima Nova;
+			src: url("Proxima Nova Regular.otf");
+		}
+		@font-face {
+			font-family: Proxima Nova Bold;
+			src: url("Proxima Nova Regular Bold.otf");
+		}
+		@font-face {
+			font-family: Proxima Nova Light;
+			src: url("Proxima Nova Light.otf");
+		}
 		#parent {
 			display: grid;
 			width: 100%;
@@ -83,7 +95,8 @@
 			width:160px;
 			self-align:center;
 			color:white;
-			font-family:sans-serif;
+			font-family: Proxima Nova Bold;
+			<!-- font-family:sans-serif; -->
 			font-size:14px;
 			font-weight:bold;
 			justify-content:center;
@@ -91,7 +104,8 @@
 			margin:30px;
 		}
 		.menu_item, p, span {
-			font-family:sans-serif;
+			font-family: Proxima Nova;
+			<!-- font-family:sans-serif; -->
 			font-size:12px;
 			color: #767d97;
 		}
@@ -101,6 +115,9 @@
 			padding-top:10px;
 			height:40px;
 			width:100%;
+		}
+		#add_button:hover{
+			filter: drop-shadow(0 0 5px #16a4fa);
 		}
 		.menu_item:hover {
 			background-color: #16a4fa;	
@@ -129,6 +146,13 @@
 		}
 		a {
 			color:#767d97;
+			font-family: Proxima Nova;
+		}
+		.time {
+			font-family: Proxima Nova Light;
+		}
+		.hist_mess {
+			font-family: Proxima Nova;
 		}
 	</style>
 </head>
@@ -137,16 +161,16 @@
 		<div id="up"></div>
 		<div id="side_menu">
 			<div class="side_block" id="side_up">
-				<div id="add_button"><span style="font-size:25px; color:white; margin-right:15px; margin-top:1px;">+</span>ADD A BOOK</div>
+				<div id="add_button"><span style="font-size:25px; color:white; margin-right:15px;">+</span>ADD A BOOK</div>
 			</div>
 			<div class="hr"></div>
 			<div class="side_block" id="menu_list">
-				<div class="menu_item"><li style="height: 20px; list-style: none; background: url(book.jpg) 0 -1px no-repeat; padding-left: 25px;"><span> Now Reading</span></div>
-				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(Browse.jpg) 0 -1px no-repeat; padding-left: 25px;"><span> Browse</span></div>
-				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(Buy.jpg) 0 -1px no-repeat; padding-left: 25px;"><span> Buy Books</span></div>
-				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(Favourite.jpg) 0 -1px no-repeat; padding-left: 25px;"><span> Favourite Books</span></div>
-				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(Wishlist.jpg) 0 -1px no-repeat; padding-left: 25px;"><span> Wishlist</span></div>
-				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(History.jpg) 0 -1px no-repeat; padding-left: 25px;"><span> History</span></div>
+				<div class="menu_item"><li style="height: 20px; list-style: none; background: url(Book.svg) 0 3px no-repeat; padding-left: 25px;"><span> Now Reading</span></div>
+				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(Browse.svg) 0 3px no-repeat; padding-left: 25px;"><span> Browse</span></div>
+				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(Buy.svg) 0 3px no-repeat; padding-left: 25px;"><span> Buy Books</span></div>
+				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(Favourite.svg) 0 3px no-repeat; padding-left: 25px;"><span> Favourite Books</span></div>
+				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(Wishlist.svg) 0 4px no-repeat; padding-left: 25px;"><span> Wishlist</span></div>
+				<div class="menu_item"><li style="height: 17px; list-style: none; background: url(History.svg) 0 3px no-repeat; padding-left: 25px;"><span> History</span></div>
 			</div>
 			<div class="hr"></div>
 			<div class="side_block" id="filter_list">
@@ -157,8 +181,8 @@
 			</div>
 			<div class="hr"></div>
 			<div class="side_block" id="history_items">
-				<div class="history_item"><li style="list-style: none; background: url(History.jpg) 0 -1px no-repeat; padding-left: 25px;"><p> You added <a href="">Fight Club</a> to your <a href="">Most read titles</a></p><p> 24 minutes ago</p></div>
-				<div class="history_item"><li style="list-style: none; background: url(History.jpg) 0 -1px no-repeat; padding-left: 25px;"><p> You added <a href="">The Trial</a> to your <a href="">Most read titles</a></p><p> 48 minutes ago</p></div>
+				<div class="history_item"><li style="list-style: none; background: url(History.svg) 0 2px no-repeat; padding-left: 25px;"><p class="hist_mess"> You added <a href="">Fight Club</a> to your <a href="">Most read titles</a></p><p class="time"> 24 minutes ago</p></div>
+				<div class="history_item"><li style="list-style: none; background: url(History.svg) 0 2px no-repeat; padding-left: 25px;"><p class="hist_mess"> You added <a href="">The Trial</a> to your <a href="">Most read titles</a></p><p class="time"> 48 minutes ago</p></div>
 			</div>
 		</div>
 		<div id="footer"></div>
