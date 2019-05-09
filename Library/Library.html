@@ -6,6 +6,7 @@
   <title>Task11.4</title>
 	<style>
 		@import url("UserLogin.css");
+		@import url("addButton.css");
 		
 		@font-face {
 			font-family: Proxima Nova;
@@ -24,7 +25,7 @@
 			width: 100%;
 			height:100%;
 			grid-template-columns: 1fr 5fr;
-			grid-template-rows: 45px 18fr 35px;
+			grid-template-rows: 45px 18fr 45px;
 			margin-left:-10px;
 			margin-top:-10px;			
 			grid-template-areas:
@@ -67,7 +68,61 @@
 			justify-content: left;
 			align-items:center;
 		}
-		
+		#main_page {
+			grid-area:main;
+			display:grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 80px 40px 780px;
+			background-color:#eef1f7;
+			margin-right:-20px;
+			margin-left:-20px;
+			grid-template-areas:
+			"title title"
+			"m_menu search"
+			"m_page m_page";
+		}
+		#search {
+			grid-area:search;
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+			align-items:center;
+			justify-content: flex-end;
+		}
+		#search_field {
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+			align-items:center;
+			justify-content: flex-end;
+			border-radius:10px;
+			border-color:#c7cddb;
+			border-width:1px;
+			background-color:white;
+			margin-right:20px;
+			width:400px;
+			height:25px;
+			
+		}
+		#Page_title {
+			grid-area:title;
+			color:#444c63;
+			margin-top:20px;
+			padding-left:5px;
+			font-family: Proxima Nova;
+			font-size:22pt;
+		}
+		#main_menu {
+			grdi-area:m_menu;
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+			align-items:center;
+			justify-content: start;
+			font-size:12pt;
+			color: #78829d;
+			font-family: Proxima Nova;
+		}
 		#up {
 			grid-area:up;
 			position:relative;
@@ -78,21 +133,26 @@
 			justify-content: flex-end;
 			background-color: #2f364a;
 			font-family: Proxima Nova;
-			font-size: 13pt;
+			font-size: 12px;
 			margin-right:-20px;
 			height:45px;
 		}
 		.up_menu {
 			display:flex;
 			flex-wrap:nowrap;
+			justify-content: flex-end;
 			align-items:center;
 			height:45px;
 		}
-		.up_menu span {
+		<!-- .up_menu span {
 			padding-right:25px;
-		}
+		} -->
 		#footer {
 			grid-area:foot;
+			display:flex;
+			flex-wrap:nowrap;
+			align-items:stretch;
+			justify-content: flex-end;
 			background-color: #2f364a;
 			margin-bottom:-10px;
 			margin-right:-20px;
@@ -108,23 +168,6 @@
 			height:115px;
 			width:200px;
 		}
-		#add_button {
-			display:flex;
-			position:relative;
-			border-radius: 5px;
-			background-color: #f2795a;
-			height:45px;
-			width:160px;
-			self-align:center;
-			color:white;
-			font-family: Proxima Nova Bold;
-			<!-- font-family:sans-serif; -->
-			font-size:14px;
-			font-weight:bold;
-			justify-content:center;
-			align-items:center;
-			margin:30px;
-		}
 		.menu_item, p, span {
 			font-family: Proxima Nova;
 			<!-- font-family:sans-serif; -->
@@ -133,15 +176,25 @@
 		}
 		.menu_item {
 			text-align:left;
-			
 			padding-top:10px;
 			height:40px;
 			width:100%;
 		}
-		#add_button:hover{
-			filter: drop-shadow(0 0 5px #15a4fa);
+		.m_menu_item {
+			font-family: Proxima Nova;
+			margin-left:20px;
+			padding-left:10px;
+			padding-top:5px;
+			padding-right:10px;
+			padding-bottom:5px;
+		}
+		.footer_item {
+			height:45px;
 		}
 		.menu_item:hover {
+			background-color: #15a4fa;
+		}
+		.footer_item:hover {
 			background-color: #15a4fa;
 		}
 		.menu_item:hover span{
@@ -160,6 +213,12 @@
 		.filter_block:hover span{
 			color: white;	
 		}
+		.m_menu_item:hover {
+			border-radius: 10px;
+			background-color:#97b3ce;
+		}
+		
+		
 		.filter_block {
 			padding-top:10px;
 			height:40px;
@@ -195,11 +254,12 @@
 	
 	<div id="parent">
 		<div id="up">
-			<div class="up_menu"><li style="list-style: none;"><span>Help Center</span></div>
-			<div class="up_menu"><li style="color:#19202e;"><span>Our Support</span></div>
+			<div class="up_menu"><span style="margin-left:10px; margin-right:-15px;">Help Center</span></div>
+			<div><li style="color:#19202e; margin-left:0px; margin-right:0px; width:3px;"></div>
+			<div class="up_menu"><span style="margin-left:10px; margin-right:-15px;">Our Support</span></div>
 			<div class="up_menu">
 				<li style="list-style: none;">
-				<div class="dropdown up_menu" id="user">User name<img src="UserArrow.png" style="margin-left:20px; margin-right:20px;"></img></div>
+				<div class="dropdown up_menu" id="user">Sign in<img src="UserArrow.png" style="margin-left:20px; margin-right:20px;"></img></div>
 				<form action="http://httpbin.org/get" method="get">
 					<div class="dropdown-content"> 
 						<div> 
@@ -213,8 +273,7 @@
 						</div>
 					</div>
 				</form>
-			</div>
-			
+			</div>			
 		</div>
 		<div id="side_menu">
 			<div class="side_block" id="side_up">
@@ -242,7 +301,25 @@
 				<div class="history_item"><li style="list-style: none; background: url(History.svg) 0 2px no-repeat; padding-left: 25px;"><p class="hist_mess"> You added <a href="">The Trial</a> to your <a href="">Most read titles</a></p><p class="time"> 48 minutes ago</p></div>
 			</div>
 		</div>
-		<div id="footer"></div>
+		<div id="main_page">
+			<div class="main_items" id="Page_title" style="margin-left:20px;">Browse Available Books<hr style="margin-left:-20px;"></div>
+			<div id="main_menu">
+				<div class="m_menu_item">All Books</div>
+				<div class="m_menu_item">Most Recent</div>
+				<div class="m_menu_item">Most Popular</div>
+				<div class="m_menu_item">Free Books</div>
+			</div>
+			<div id="search">
+				<div id="search_field">
+					<input type="search" id="search_input" placeholder="Enter keywords" style="height:15px; width:350px; margin-left:20px; border-color:transparent;">
+					<label for="search_input"><img src="SearchGlass.png" style="margin-top:5px; margin-left:5px; margin-right:20px;"></img></label>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="footer_item"><img src="Help.png" alt="help" style="margin-top:15px; margin-left:20px; margin-right:20px;"></img></div>
+			<div class="footer_item"><img src="Settings.png" alt="settings" style="margin-top:15px; margin-left:20px; margin-right:20px;"></img></div>
+		</div>
 	</div>
 	
 	<script src="UserLogin.js"></script>
