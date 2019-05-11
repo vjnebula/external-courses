@@ -1,17 +1,20 @@
 function clear (event) {
-		var prnt = event.target.parentElement;
+		var target = event.target;
+		var prnt = target.parentElement;
 		for (var i = 0; i<5; i++) {
-			prnt.children[i].style.background = '';
-			if (prnt.children[i] == event.target ){
+			prnt.children[i].style.stroke = '';
+			if (prnt.children[i] == target ){
 				return;
 			}
 		} 
 };//clear
 function setFill (event) {
-		var prnt = event.target.parentElement;
+		var target = event.target;
+		var prnt = target.parentElement;
+		//alert(target.children[5]);
 		for (var i = 0; i<5; i++) {
-			prnt.children[i].style.background = '#ffab00';
-			if (prnt.children[i] == event.target ){
+			prnt.children[i].style.stroke = 'green';
+			if (prnt.children[i] == target ){
 				return;
 			}
 		}
@@ -25,7 +28,7 @@ function setRate (event) {
 				prnt.children[i].onmouseout = null;
 			} */
 			for (var i = 0; i<5; i++) {
-				prnt.children[i].style.background = '#ffab00';
+				prnt.children[i].style.stroke = 'green';
 				prnt.children[i].onmouseout = null;
 				if (prnt.children[i] == event.target ){
 					return;
@@ -34,7 +37,7 @@ function setRate (event) {
 		}//if target clear
 		if (target.onmouseout == null) {
 			for (var i = 0; i<5; i++) {
-				prnt.children[i].style.background = '';
+				prnt.children[i].style.fill = '';
 				prnt.children[i].onmouseout = clear;
 				/* if (prnt.children[i] == target ){
 					return;
@@ -50,8 +53,8 @@ var star4 = document.getElementById('star4');
 var star5 = document.getElementById('star5'); */
 //var prnt  = document.getElementById('stars_parent');
 
-var starArr = document.getElementsByClassName('stars');
-//starArr = starArr.slice();
+var starArr = document.getElementsByClassName('SVGstars');
+//s = document.getElementById('starSVG');
 for (var s of starArr) {
 s.onmouseover = setFill;
 s.onmouseout = clear;
