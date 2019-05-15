@@ -337,7 +337,8 @@
 		</div>
 		<div id="side_menu">
 			<div class="side_block" id="side_up">
-				<div id="add_button"><span style="font-size:25px; color:white; margin-right:15px;">+</span>ADD A BOOK</div>
+				<div id="add_button" onclick="document.getElementById('file-input').click();"><span style="font-size:25px; color:white; margin-right:15px;">+</span>ADD A BOOK</div>
+				<input id="file-input" type="file" multiple accept=".png" name="my_f_input" style="display: none;" />
 			</div>
 			<div class="hr"></div>
 			<div class="side_block" id="menu_list">
@@ -496,5 +497,8 @@
 	<script src="Stars.js"></script>
 	<script src="UserLogin.js"></script>
 	<script src="ContentAdd.js"></script>
+	<script>
+		
+	</script>
 </body>
 </html>
