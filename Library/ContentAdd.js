@@ -1,3 +1,20 @@
+function bookCRT(name, author, title) {
+			//this.id =
+			this.bk_name = name;
+			this.rating = 0;
+			this.bk_recent = 0;
+			this.bk_popular = 0;
+			this.bk_free = 0;
+			this.bk_author = author;
+			this.title = title;
+			//this.cost = 
+			this.categories = ["must_read","best","non_fiction"];
+			this.createdAt = 1506943763424;
+			this.updatedAt = 1528046197707;
+			this.image_url = "http://rsu-library-api.herokuapp.com/static/images/1.jpg";
+}
+
+
 var getfiles = function(){
 			
 			var f_input = document.getElementById('file-input');
@@ -5,12 +22,15 @@ var getfiles = function(){
 			var arrLength = bookArr.length;
 			var bookfile;
 			//var reader  = new FileReader();
+			//var test = document.getElementById('test');
+			//test.style.display = 'none';
 			for (var i = 0; i < arrLength; i++) {
 				bookfile = bookArr[i];
 				TitleCut = bookfile.name.split(" by ");
 				bookUrl = window.URL.createObjectURL(bookfile);
 				//alert(window.URL.revokeObjectURL(bookUrl));
 				ContentAdd(TitleCut[0], ("by " + TitleCut[1]), bookUrl)
+				
 			}
 		}
 document.getElementById('file-input').onchange = getfiles;
@@ -33,6 +53,7 @@ function ContentAdd(bk_title, bk_author, bk_url) {
 			"</svg>"+
 		"</div>";
 	newDiv.className = "m_content";
+	//newDiv.id = "";
 	content_prnt_div.appendChild(newDiv);
 	//newDiv = document.createElement('div');
 	//var tempText = document.createTextNode("Jewels of Nizam");
