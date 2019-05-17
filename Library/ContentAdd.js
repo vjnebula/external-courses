@@ -41,17 +41,20 @@ var getfiles = function(){
 				bookfile = bookArr[i];
 				TitleCut = bookfile.name.split(" by ");
 				bookUrl = window.URL.createObjectURL(bookfile);
-				//alert(window.URL.revokeObjectURL(bookUrl));
-				ContentAdd(TitleCut[0], ("by " + TitleCut[1]), bookUrl)
-				
+				//window.URL.revokeObjectURL(bookUrl);
+				//{"rating":5,"cost":100,"categories":["must_read","best","non_fiction"],"image_url":"http://rsu-library-api.herokuapp.com/static/images/1.jpg"}
+				var bk_id = myLib.length+1;
+				TitleCut[1] = TitleCut[1].replace(".png", " ");
+				ContentAdd(bk_id, TitleCut[0], ("by " + TitleCut[1]), bookUrl);
+				var newAuthor = TitleCut[1].split(" ");
+				var newBook = {"id":bk_id, "title":TitleCut[0],"author":{"firstName":newAuthor[0],"lastName":newAuthor[1]},"rating":3,"cost":0,"categories":["must_read","best","non_fiction"],"createdAt":1506943763424,"updatedAt":1528046197707,"image_url":bookUrl};
+				myLib.push(newBook);
 			}
 		}
 document.getElementById('file-input').onchange = getfiles;
 
 function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
 	var content_prnt_div = document.getElementById('main_content');
-	//var bk_title = "Jewels of Nizam";
-	//var bk_author = "by Geeta Devi";
 	var newDiv = document.createElement("div");
 	newDiv.innerHTML = "<div><img src='" + bk_url + "'></img></div>" + 
 		"<div class='book_title'>" + bk_title + "</div>" + 
@@ -82,6 +85,15 @@ function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
 }
  
  
+var starArr = document.getElementsByClassName('SVGstars');
+	//s = document.getElementById('starSVG');
+	for (var s of starArr) {
+		s.onmouseover = setFill;
+		s.onmouseout = clear;
+		s.onclick = setRate;
+	} 
+ 
+ 
 /* var content_prnt_div = document.getElementById('main_content');
 	var bk_title = "Cakes & Bakes";
 	var bk_author = "by Sanjeev Kapoor";
@@ -104,12 +116,3 @@ function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
 	//var tempText = document.createTextNode("Jewels of Nizam");
 	//newDiv.appendChild(tempText);
 	//document.content_div.appendChild(newDiv); */
-	
-
-	var starArr = document.getElementsByClassName('SVGstars');
-	//s = document.getElementById('starSVG');
-	for (var s of starArr) {
-	s.onmouseover = setFill;
-	s.onmouseout = clear;
-	s.onclick = setRate;
-	}
