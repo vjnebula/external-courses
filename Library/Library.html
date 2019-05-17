@@ -10,6 +10,7 @@
 		@import url("fonts.css");
 		@import url("history.css");
 		@import url("footer.css");
+		@import url("scroll.css");
 				
 		#parent {
 			display: grid;
@@ -53,7 +54,7 @@
 			flex-direction:column;
 			position:relative;
 			background-color: #1f2638;
-			height:100%;
+			<!-- height:100%; -->
 			width:100%;
 			border:1px solid #1f2638;
 			justify-content: left;
@@ -77,6 +78,7 @@
 			flex-direction:row;
 			flex-wrap: wrap;
 			justify-content: flex-start;
+			overflow: auto;
 			background-color:white;
 		}
 		.m_content {
@@ -230,7 +232,9 @@
 		.cls-1 {
 			fill: #78829d;
 			fill-rule: evenodd;
-		}					
+		}
+		
+		
 	</style>
 </head>
 <body>
