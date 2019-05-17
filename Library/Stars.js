@@ -23,14 +23,24 @@ function setFill (event) {
 function setRate (event) {
 		var target = event.target;
 		var prnt = target.parentElement;
+		var cur_id = prnt.parentElement.parentElement.id;
+		
 		if (target.onmouseout == clear) {
-			/* for (var i = 0; i<5; i++) {
+			for (var i = 0; i<5; i++) {
 				prnt.children[i].onmouseout = null;
-			} */
+				prnt.children[i].onmouseover = null;
+			} 
 			for (var i = 0; i<5; i++) {
 				prnt.children[i].style.fill = '#ffab00';
 				prnt.children[i].onmouseout = null;
 				if (prnt.children[i] == event.target ){
+					for (var b of myLib) { 
+						if (b.id == cur_id) {
+							b.rating = i+1;
+							newHistMesAdd("You set new rating of " + (i+1) + " stars for " + b.title );
+							}
+					}
+					
 					return;
 				}//if
 			}//for i
@@ -39,19 +49,10 @@ function setRate (event) {
 			for (var i = 0; i<5; i++) {
 				prnt.children[i].style.fill = '';
 				prnt.children[i].onmouseout = clear;
-				/* if (prnt.children[i] == target ){
-					return;
-				}//if */
+				prnt.children[i].onmouseover = setFill;
 			}//for i
 		}//if target null
 };//setRate
-
-/* var star1 = document.getElementById('star1');
-var star2 = document.getElementById('star2');
-var star3 = document.getElementById('star3');
-var star4 = document.getElementById('star4');
-var star5 = document.getElementById('star5'); */
-//var prnt  = document.getElementById('stars_parent');
 
 var starArr = document.getElementsByClassName('SVGstars');
 //s = document.getElementById('starSVG');
