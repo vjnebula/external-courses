@@ -1,4 +1,4 @@
-function bookCRT(name, author, title) {
+/* function bookCRT(name, author, title) {
 			//this.id =
 			this.bk_name = name;
 			this.rating = 0;
@@ -12,8 +12,21 @@ function bookCRT(name, author, title) {
 			this.createdAt = 1506943763424;
 			this.updatedAt = 1528046197707;
 			this.image_url = "http://rsu-library-api.herokuapp.com/static/images/1.jpg";
-}
-
+} */
+//alert(myLib);
+$.ajax({
+    url:'https://rsu-library-api.herokuapp.com/books',
+	dataType : "json",  
+    success:function(data){
+        JSON.stringify(data);
+		var lib = data;
+		//myLib = $.parseJSON(data);
+		for (var d of lib) {
+		var bk_author = d.author.firstName + " " + d.author.lastName;
+		ContentAdd(d.id, d.title, bk_author, d.image_url);
+		}
+    }
+},false);
 
 var getfiles = function(){
 			
@@ -35,7 +48,7 @@ var getfiles = function(){
 		}
 document.getElementById('file-input').onchange = getfiles;
 
-function ContentAdd(bk_title, bk_author, bk_url) {
+function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
 	var content_prnt_div = document.getElementById('main_content');
 	//var bk_title = "Jewels of Nizam";
 	//var bk_author = "by Geeta Devi";
@@ -53,7 +66,7 @@ function ContentAdd(bk_title, bk_author, bk_url) {
 			"</svg>"+
 		"</div>";
 	newDiv.className = "m_content";
-	//newDiv.id = "";
+	newDiv.id = bk_id;
 	content_prnt_div.appendChild(newDiv);
 	//newDiv = document.createElement('div');
 	//var tempText = document.createTextNode("Jewels of Nizam");
@@ -67,17 +80,9 @@ function ContentAdd(bk_title, bk_author, bk_url) {
 	s.onclick = setRate;
 	}
 }
-/* const path = require('path');
-const fs = require('fs');
-const directoryPath = path.join("book");
-alert(directoryPath);
-alert(""); */
-/* var xmlhttp = new XMLHttpRequest();
-xmlhttp.open("GET","book_cover.png",true);
-xmlhttp.send();
-alert(xmlhttp.responseText);
- */
-var content_prnt_div = document.getElementById('main_content');
+ 
+ 
+/* var content_prnt_div = document.getElementById('main_content');
 	var bk_title = "Cakes & Bakes";
 	var bk_author = "by Sanjeev Kapoor";
 	var newDiv = document.createElement("div");
@@ -98,7 +103,9 @@ var content_prnt_div = document.getElementById('main_content');
 	//newDiv = document.createElement('div');
 	//var tempText = document.createTextNode("Jewels of Nizam");
 	//newDiv.appendChild(tempText);
-	//document.content_div.appendChild(newDiv);
+	//document.content_div.appendChild(newDiv); */
+	
+
 	var starArr = document.getElementsByClassName('SVGstars');
 	//s = document.getElementById('starSVG');
 	for (var s of starArr) {
