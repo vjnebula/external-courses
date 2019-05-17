@@ -2,7 +2,7 @@ function clear (event) {
 		var target = event.target;
 		var prnt = target.parentElement;
 		for (var i = 0; i<5; i++) {
-			prnt.children[i].style.stroke = '';
+			prnt.children[i].style.fill = '';
 			if (prnt.children[i] == target ){
 				return;
 			}
@@ -13,7 +13,7 @@ function setFill (event) {
 		var prnt = target.parentElement;
 		//alert(target.children[5]);
 		for (var i = 0; i<5; i++) {
-			prnt.children[i].style.stroke = 'green';
+			prnt.children[i].style.fill = '#ffab00';
 			if (prnt.children[i] == target ){
 				return;
 			}
@@ -28,7 +28,7 @@ function setRate (event) {
 				prnt.children[i].onmouseout = null;
 			} */
 			for (var i = 0; i<5; i++) {
-				prnt.children[i].style.stroke = 'green';
+				prnt.children[i].style.fill = '#ffab00';
 				prnt.children[i].onmouseout = null;
 				if (prnt.children[i] == event.target ){
 					return;
