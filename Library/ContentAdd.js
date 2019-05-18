@@ -49,6 +49,7 @@ var getfiles = function(){
 				var newAuthor = TitleCut[1].split(" ");
 				var newBook = {"id":bk_id, "title":TitleCut[0],"author":{"firstName":newAuthor[0],"lastName":newAuthor[1]},"rating":3,"cost":0,"categories":["must_read","best","non_fiction"],"createdAt":1506943763424,"updatedAt":1528046197707,"image_url":bookUrl};
 				myLib.push(newBook);
+				newHistMesAdd("You added new book " + TitleCut[0]);
 			}
 		}
 document.getElementById('file-input').onchange = getfiles;
@@ -69,6 +70,7 @@ function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
 			"</svg>"+
 		"</div>";
 	newDiv.className = "m_content";
+	newDiv.style.display = 'flex';
 	newDiv.id = bk_id;
 	content_prnt_div.appendChild(newDiv);
 	//newDiv = document.createElement('div');
