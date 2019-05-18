@@ -1,18 +1,3 @@
-/* function bookCRT(name, author, title) {
-			//this.id =
-			this.bk_name = name;
-			this.rating = 0;
-			this.bk_recent = 0;
-			this.bk_popular = 0;
-			this.bk_free = 0;
-			this.bk_author = author;
-			this.title = title;
-			//this.cost = 
-			this.categories = ["must_read","best","non_fiction"];
-			this.createdAt = 1506943763424;
-			this.updatedAt = 1528046197707;
-			this.image_url = "http://rsu-library-api.herokuapp.com/static/images/1.jpg";
-} */
 //alert(myLib);
 $.ajax({
     url:'https://rsu-library-api.herokuapp.com/books',
@@ -26,7 +11,7 @@ $.ajax({
 		ContentAdd(d.id, d.title, bk_author, d.image_url);
 		}
     }
-},false);
+});//was false
 
 var getfiles = function(){
 			
@@ -42,7 +27,6 @@ var getfiles = function(){
 				TitleCut = bookfile.name.split(" by ");
 				bookUrl = window.URL.createObjectURL(bookfile);
 				//window.URL.revokeObjectURL(bookUrl);
-				//{"rating":5,"cost":100,"categories":["must_read","best","non_fiction"],"image_url":"http://rsu-library-api.herokuapp.com/static/images/1.jpg"}
 				var bk_id = myLib.length+1;
 				TitleCut[1] = TitleCut[1].replace(".png", " ");
 				ContentAdd(bk_id, TitleCut[0], ("by " + TitleCut[1]), bookUrl);
