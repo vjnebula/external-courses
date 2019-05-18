@@ -1,17 +1,29 @@
 var myLib = {};
 
-//function req(){
-var requestURL = 'https://rsu-library-api.herokuapp.com/books';
+
+/* var requestURL = 'https://rsu-library-api.herokuapp.com/books';
 var request = new XMLHttpRequest();
-//request.responseType = 'text';
 request.open('GET', requestURL, false);
-
-
 
 request.onload = function() {
   myLib = JSON.parse(request.responseText);
-  //return myLib;
-  //alert(myLib);
 }
 request.send();
+ */
+var myHeaders = new Headers();
 
+var myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' };
+var requestURL = 'https://rsu-library-api.herokuapp.com/books';
+//var myRequest = new XMLHttpRequest('GET', requestURL, false);
+
+var myRequest = new Request('https://rsu-library-api.herokuapp.com/books', myInit);
+
+fetch(myRequest).then(function(response) {
+  return response.json();
+}).then(function(data) {
+	JSON.stringify(data);
+	myLib = data;
+}); 
