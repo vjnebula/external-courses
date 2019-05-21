@@ -89,5 +89,6 @@ var starArr = document.getElementsByClassName('SVGstars');
 	} 
 
 var histArr = [];
-//histArr.length = 10; 
- 
+if ( localStorage.getItem('histKey') ) {
+	histArr = localStorage.getItem('histKey').split(",").splice(-10,10);
+}
