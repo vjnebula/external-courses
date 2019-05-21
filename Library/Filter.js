@@ -1,6 +1,6 @@
 //var fltr = document.getElementById('f_recent');
 
-//document.getElementById('f_recent').onclick = fltrRecent;
+document.getElementById('f_recent').onclick = fltrRecent;
 document.getElementById('f_free').onclick = fltrFree;
 document.getElementById('f_best').onclick = fltrBest;
 document.getElementById('f_all').onclick = fltrAll;
@@ -13,6 +13,7 @@ document.getElementById('m_history').onclick = fltrHistory;
 function view() {
 	hideAll();
 	document.getElementById('main_content').style.flexDirection = 'row';
+	document.getElementById('main_content').style.flexWrap = 'wrap';
 }
 
 function fltrCat(cat_name) {
@@ -42,6 +43,28 @@ function hideAll() {
 	for (var i = 0; i < m_cont.length; i++) {
 		m_cont[i].style.display = 'none';
 	}
+}
+
+function fltrRecent() {
+	var list = document.getElementById('m_content');
+	var items = list.childNodes;
+	var itemsArr = [];
+	for (var i in items) {
+		if (items[i].id) { 
+			itemsArr.push(items[i]);
+		}
+	}
+	itemsArr.sort(function(a, b) {
+			var a_crt, b_crt;
+			for (var book of myLib) {
+				if (book.id = a.id){
+						a_crt = book.createdAt;
+				}
+				if (book.id = b.id){
+						b_crt = book.createdAt;
+				}
+		return a_crt - b_crt;
+	});
 }
 
 function fltrPopular() {
@@ -89,12 +112,13 @@ function fltrHistory () {
 	histArr.forEach(
 		function(item){
 			var newHistDiv = document.createElement("div");
-			newHistDiv.innerHTML = "<li style='list-style: none; background: url(History.svg) 0 2px no-repeat; word-wrap: break-word; padding-left: 25px;'>" + 
-			"<p class='hist_mess' style='height:25px;'>" + item
+			newHistDiv.innerHTML = "<li style='list-style: none; background: url(History.svg) 0 2px no-repeat; padding-left: 25px;'>" + 
+			"<p class='hist_mess' style='text-align: justify; height:25px; word-wrap: break-word;'>" + item
 			"</p>";
 			newHistDiv.className = "m_content";
 			document.getElementById('main_content').appendChild(newHistDiv);
 			document.getElementById('main_content').style.flexDirection = 'column';
+			document.getElementById('main_content').style.flexWrap = 'nowrap';
 		});
 }
 
@@ -102,9 +126,10 @@ function fltrHistory () {
 var last;
 function newHistMesAdd(message) {
 	histArr.push(message);
+	localStorage.setItem('histKey', histArr);
 	var newHistDiv = document.createElement("div");
-	newHistDiv.innerHTML = "<li style='list-style: none; background: url(History.svg) 0 2px no-repeat; word-wrap: break-word; padding-left: 25px;'>" + 
-	"<p class='hist_mess' style='height:25px;'>" + message
+	newHistDiv.innerHTML = "<li style='list-style: none; background: url(History.svg) 0 2px no-repeat; padding-left: 25px;'>" + 
+	"<p class='hist_mess'>" + message
 	"</p>";
 	newHistDiv.className = "history_item";
 	var hist_cont = document.getElementById('history_items');
