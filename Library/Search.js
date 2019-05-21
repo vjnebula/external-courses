@@ -13,11 +13,18 @@ s_input.addEventListener("search", function() {
 
 keyup();//initialize search field
 
-function keyup() {
+/* function keyup() {
 	$("#search_input").keyup(function(){
 		$("#search_input").off( "keyup" );
 		setTimeout(srch_deb.bind(this), 2000);
 	}); 
+}//keyup */
+
+function keyup() {
+	s_input.onkeyup = function(){
+		s_input.onkeyup = null;
+		setTimeout(srch_deb.bind(this), 2000);
+	}; 
 }//keyup
 
 function srch_deb() {
