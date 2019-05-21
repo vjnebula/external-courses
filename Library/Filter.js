@@ -1,6 +1,8 @@
 //var fltr = document.getElementById('f_recent');
 
 document.getElementById('f_recent').onclick = fltrRecent;
+//document.getElementById('f_favourite').onclick = "";
+document.getElementById('f_nowReading').onclick = fltrNowReading;
 document.getElementById('f_free').onclick = fltrFree;
 document.getElementById('f_best').onclick = fltrBest;
 document.getElementById('f_all').onclick = fltrAll;
@@ -32,6 +34,7 @@ function fltrAll() {
 	for (var b of myLib) {
 				//alert(b.id + " " + b.categories);
 				document.getElementById(b.id).style.display = 'flex';
+				document.getElementById(b.id).style.order = "";
 	}
 }
 
@@ -45,27 +48,7 @@ function hideAll() {
 	}
 }
 
-function fltrRecent() {
-	var list = document.getElementById('m_content');
-	var items = list.childNodes;
-	var itemsArr = [];
-	for (var i in items) {
-		if (items[i].id) { 
-			itemsArr.push(items[i]);
-		}
-	}
-	itemsArr.sort(function(a, b) {
-			var a_crt, b_crt;
-			for (var book of myLib) {
-				if (book.id = a.id){
-						a_crt = book.createdAt;
-				}
-				if (book.id = b.id){
-						b_crt = book.createdAt;
-				}
-		return a_crt - b_crt;
-	});
-}
+
 
 function fltrPopular() {
 	fltrAll();
@@ -138,4 +121,95 @@ function newHistMesAdd(message) {
 		hist_cont.lastChild.remove();
 	}
 }
-//You added <a href="">The Trial</a> to your <a href="">Most read titles</a></p><p class="time"> 48 minutes ago
+
+function fltrRecent() {
+	fltrAll();
+	var list = document.getElementById('main_content');
+	var items = list.childNodes;
+	var itemsArr = [];
+	for (var i = 0; i< items.length; i++) {
+		if (items[i].id) { 
+			itemsArr.push(items[i]);
+		}
+	}
+	
+	itemsArr.sort(function(a, b) {
+			var a_crt, b_crt;
+			for (var book of myLib) {
+				if (book.id == a.id){
+						//a_crt = book.createdAt;
+						a_crt = Math.random();
+				}
+				if (book.id == b.id){
+						//b_crt = book.createdAt;
+						b_crt = Math.random();
+				}
+			};
+		var result = a_crt - b_crt;
+		return result;
+	});//sort
+	/* for (var k = 1; k < items.length; k++) {
+		for (var c =0; c < itemsArr.length; c++) {
+			if (list.childNodes[k].id == itemsArr[c].id) {
+				list.childNodes[k].style.order = +c;
+			}
+		}
+	} */
+	CheckParam(items, itemsArr, setOrder, checkId);
+}//fltrRecent
+
+function fltrNowReading() {
+	fltrAll();
+	var list = document.getElementById('main_content');
+	var items = list.childNodes;
+	var itemsArr = [];
+	for (var i = 0; i< items.length; i++) {
+		if (items[i].id) { 
+			itemsArr.push(items[i]);
+		}
+	}
+	
+	itemsArr.sort(function(a, b) {
+			var a_crt, b_crt;
+			for (var book of myLib) {
+				if (book.id == a.id){
+						//a_crt = book.updatedAt;
+						a_crt = Math.random();
+				}
+				if (book.id == b.id){
+						//b_crt = book.updatedAt;
+						b_crt = Math.random();
+				}
+			};
+		var result = a_crt - b_crt;
+		return result;
+	});//sort
+	//console.log(itemsArr);
+	
+	/* for (var k = 1; k < items.length; k++) {
+		for (var c = 0; c < itemsArr.length; c++) {
+			if (list.childNodes[k].id == itemsArr[c].id) {
+				list.childNodes[k].style.order = +c;
+			}
+		}
+	} */
+	CheckParam(items, itemsArr, setOrder, checkId);
+}//fltrNowReading
+
+function checkId (col_item, arr_item) {
+		return col_item.id == arr_item.id;
+}
+
+function setOrder(col_item, arr_item, index, cb) {
+	if (cb(col_item, arr_item)){
+		col_item.style.order = +index;
+	}
+}
+
+function CheckParam (collection, arr, cb, cb2) {
+	for (var k = 1; k < collection.length; k++) {
+		for (var c = 0; c < arr.length; c++) {
+			cb(collection[k], arr[c], c, cb2);
+		}
+	}
+}
