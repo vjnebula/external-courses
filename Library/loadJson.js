@@ -26,4 +26,5 @@ fetch(myRequest).then(function(response) {
 }).then(function(data) {
 	JSON.stringify(data);
 	myLib = data;
+	lib = data;
 }); 
