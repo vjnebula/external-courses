@@ -1,7 +1,7 @@
 //var fltr = document.getElementById('f_recent');
 
 document.getElementById('f_recent').onclick = fltrRecent;
-//document.getElementById('f_favourite').onclick = "";
+document.getElementById('f_favourite').onclick = fltrFavor;
 document.getElementById('f_nowReading').onclick = fltrNowReading;
 document.getElementById('f_free').onclick = fltrFree;
 document.getElementById('f_best').onclick = fltrBest;
@@ -99,9 +99,10 @@ function fltrHistory () {
 			"<p class='hist_mess' style='text-align: justify; height:25px; word-wrap: break-word;'>" + item
 			"</p>";
 			newHistDiv.className = "m_content";
-			document.getElementById('main_content').appendChild(newHistDiv);
-			document.getElementById('main_content').style.flexDirection = 'column';
-			document.getElementById('main_content').style.flexWrap = 'nowrap';
+			var m_c = document.getElementById('main_content');
+			m_c.insertBefore(newHistDiv, m_c.firstChild);
+			m_c.style.flexDirection = 'column';
+			m_c.style.flexWrap = 'nowrap';
 		});
 }
 
@@ -122,8 +123,20 @@ function newHistMesAdd(message) {
 	}
 }
 
+function fltrFavor () {
+	view();
+	for (var book of myLib) {
+		if ( localStorage.getItem(+book.id) ) {
+				if (localStorage.getItem(+book.id) > 2 ) {
+					document.getElementById(book.id).style.display = 'flex';
+				}
+		}
+	}
+}
+
 function fltrRecent() {
 	fltrAll();
+	newHistMesAdd("You used Most Recent filter");
 	var list = document.getElementById('main_content');
 	var items = list.childNodes;
 	var itemsArr = [];
