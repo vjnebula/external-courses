@@ -1,17 +1,30 @@
-//alert(myLib);
-$.ajax({
-    url:'https://rsu-library-api.herokuapp.com/books',
-	dataType : "json",  
-    success:function(data){
-        JSON.stringify(data);
-		var lib = data;
-		//myLib = $.parseJSON(data);
-		for (var d of lib) {
-		var bk_author = d.author.firstName + " " + d.author.lastName;
-		ContentAdd(d.id, d.title, bk_author, d.image_url);
-		}
-    }
-});//was false
+
+var myLib = {};
+
+var myHeaders = new Headers();
+
+var myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' };
+var requestURL = 'https://rsu-library-api.herokuapp.com/books';
+//var myRequest = new XMLHttpRequest('GET', requestURL, false);
+
+var myRequest = new Request('https://rsu-library-api.herokuapp.com/books', myInit);
+
+fetch(myRequest).then(function(response) {
+						return response.json();
+							}).then(function(data) {
+								JSON.stringify(data);
+								return myLib = data;
+								//lib = data;
+									}).then(function(myLib) {
+											for (var d of myLib) {
+											var bk_author = d.author.firstName + " " + d.author.lastName;
+											ContentAdd(d.id, d.title, bk_author, d.image_url);
+											}
+										}
+);
 
 var getfiles = function(){
 			
@@ -19,14 +32,10 @@ var getfiles = function(){
 			var bookArr = f_input.files;
 			var arrLength = bookArr.length;
 			var bookfile;
-			//var reader  = new FileReader();
-			//var test = document.getElementById('test');
-			//test.style.display = 'none';
 			for (var i = 0; i < arrLength; i++) {
 				bookfile = bookArr[i];
 				TitleCut = bookfile.name.split(" by ");
 				bookUrl = window.URL.createObjectURL(bookfile);
-				//window.URL.revokeObjectURL(bookUrl);
 				var bk_id = myLib.length+1;
 				TitleCut[1] = TitleCut[1].replace(".png", " ");
 				ContentAdd(bk_id, TitleCut[0], ("by " + TitleCut[1]), bookUrl);
