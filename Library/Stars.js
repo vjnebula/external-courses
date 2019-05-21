@@ -37,7 +37,8 @@ function setRate (event) {
 					for (var b of myLib) { 
 						if (b.id == cur_id) {
 							b.rating = i+1;
-							newHistMesAdd("You set new rating of " + (i+1) + " stars for " + b.title );
+							newHistMesAdd("You set new rating of " + b.rating + " stars for " + b.title );
+							localStorage.setItem(+b.id, b.rating);
 							}
 					}
 					
@@ -51,6 +52,13 @@ function setRate (event) {
 				prnt.children[i].onmouseout = clear;
 				prnt.children[i].onmouseover = setFill;
 			}//for i
+			for (var b of myLib) { 
+					if (b.id == cur_id) {
+						b.rating = 0;
+						newHistMesAdd("You set new rating of " + b.rating + " stars for " + b.title );
+						localStorage.setItem(+b.id, b.rating);
+					}
+			}
 		}//if target null
 };//setRate
 
