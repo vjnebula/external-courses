@@ -1,0 +1,30 @@
+		.menu_item:hover {
+			background-color: #15a4fa;
+		}
+		.footer_item:hover {
+			background-color: #15a4fa;
+		}
+		.menu_item:hover span{
+			color: white;
+		}
+		.menu_item:hover svg > path {
+			fill: #fff;
+		}
+		.up_menu:hover {
+			background-color: #15a4fa;
+			color:white;
+		}
+		.up_menu:hover span {
+			color:white;
+		}
+		.filter_block:hover {
+			background-color: #15a4fa;	
+		}
+		.filter_block:hover span{
+			color: white;	
+		}
+		.m_menu_item:hover {
+			border-radius: 10px;
+			background-color:#97b3ce;
+			color: white;
+		}
