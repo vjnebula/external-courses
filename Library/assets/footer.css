@@ -1,0 +1,14 @@
+		#footer {
+			grid-area:foot;
+			display:flex;
+			flex-wrap:nowrap;
+			align-items:stretch;
+			justify-content: flex-end;
+			background-color: #2f364a;
+			margin-bottom:-30px;
+			margin-right:-20px;
+			height:45px;
+		}
+		.footer_item {
+			height:45px;
+		}
