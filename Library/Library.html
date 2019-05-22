@@ -4,13 +4,14 @@
   <meta charset="utf-8" name="viewport" content="width=device-width">
   <title>Library</title>
 	<style>
-		@import url("UserLogin.css");
-		@import url("addButton.css");
-		@import url("hover.css");
-		@import url("fonts.css");
-		@import url("history.css");
-		@import url("footer.css");
-		@import url("scroll.css");
+		@import url("assets/UserLogin.css");
+		@import url("assets/addButton.css");
+		@import url("assets/hover.css");
+		@import url("assets/fonts.css");
+		@import url("assets/history.css");
+		@import url("assets/footer.css");
+		@import url("assets/scroll.css");
+		@import url("assets/UpSide.css");
 				
 		#parent {
 			display: grid;
@@ -151,27 +152,7 @@
 			color: #78829d;
 			font-family: Proxima Nova;
 		}
-		#up {
-			grid-area:up;
-			position:relative;
-			display:flex;
-			flex-direction:row;
-			flex-wrap:nowrap;
-			align-items:center;
-			justify-content: flex-end;
-			background-color: #2f364a;
-			font-family: Proxima Nova;
-			font-size: 12px;
-			margin-right:-20px;
-			height:45px;
-		}
-		.up_menu {
-			display:flex;
-			flex-wrap:nowrap;
-			justify-content: flex-end;
-			align-items:center;
-			height:45px;
-		}
+		
 		.stars {
 			display:flex;
 			flex-wrap:nowrap;
@@ -179,9 +160,7 @@
 			justify-content: stretch;
 			align-items:center;
 		}
-		.up_menu span {
-			padding-right:25px;
-		}
+		
 		.hr {
 			position:relative;
 			height:10px;
@@ -239,17 +218,15 @@
 	</style>
 </head>
 <body>
-	
 	<div id="parent">
 		<div id="up">
-			<div class="up_menu"><span style="margin-left:10px; margin-right:-15px;">Help Center</span></div>
-			<div><li style="color:#19202e; margin-left:0px; margin-right:0px; width:3px;"></div>
-			<div class="up_menu"><span style="margin-left:10px; margin-right:-15px;">Our Support</span></div>
+			<div class="up_menu"><span class = "up_button">Help Center</span></div>
+			<div><li class = "up_li"></div>
+			<div class="up_menu"><span class = "up_button">Our Support</span></div>
 			<div class="up_menu">
-				<li style="list-style: none;">
-				<div class="dropdown up_menu" id="user">Sign in<img src="UserArrow.png" style="margin-left:20px; margin-right:20px;"></img></div>
-				<div class="dropdown up_menu" id="user_logged" style="display:none; color:white; white-space:nowrap; text-align:center;">
-					<img src="avatar-01.png" style="margin-right:10px;"></img>John Doe<img src="UserArrow.png" style="margin-left:20px; margin-right:20px;"></img>
+				<div class="dropdown up_menu" id="user">Sign in<img class="img_arrow" src="UserArrow.png"></img></div>
+				<div class="dropdown up_menu" id="user_logged">
+					<img src="avatar-01.png" style="margin-right:10px; margin-left:10px;"></img>John Doe<img class="img_arrow" src="UserArrow.png"></img>
 				</div>
 				<form action="http://httpbin.org/get" method="get">
 					<div class="dropdown-content"> 
@@ -368,9 +345,7 @@
 							 -->
 							</defs>
 	</svg>
-	<!-- <div style="position:absolute; transform: translate(-50%, -50%); top: 50%; left:50%; z-index:2;">
-	<img src="book_cover.png" alt="settings" style="margin-top:15px; margin-left:20px; margin-right:20px;"></img>
-	</div> -->
+	
 	<script src="jquery-3.4.1.min.js"></script>
 	<script src="loadJson.js"></script>
 	<script src="search.js"></script>
