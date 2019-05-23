@@ -34,6 +34,9 @@
 			justify-content: left;
 			align-items:center;
 }
+.side_block input {
+	display: none;
+}
 #side_up {
 			height:115px;
 			width:200px;
