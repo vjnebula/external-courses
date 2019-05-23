@@ -20,3 +20,14 @@
 			width:400px;
 			height:25px;	
 		}
+		#search_input {
+			height:20px; 
+			width:350px; 
+			margin-left:20px; 
+			border-color:transparent;
+		}
+		#search_field label img {
+			margin-top:5px; 
+			margin-left:5px; 
+			margin-right:20px;
+		}
