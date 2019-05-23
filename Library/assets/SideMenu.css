@@ -55,6 +55,11 @@
 			width:14px; 
 			height:14px;
 }
+.filter_block {
+			padding-top:10px;
+			height:40px;
+			width:200px;
+}
 .filter_block:nth-of-type(1) li {
 	color:#cf556c;
 }
