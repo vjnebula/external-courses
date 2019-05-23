@@ -45,11 +45,13 @@
 		}
 		.hr {
 			position:relative;
-			height:10px;
+			height:8px;
 			width:100%;
 			background-color: #1c2333;
-			border:1px solid #252b38;
-		}	
+			border-bottom:1px solid #252b38;
+			border-top:1px solid black;
+			border-right:1px solid;
+		}
 		li {
 			margin-left:25px;
 		}
@@ -100,8 +102,13 @@
 		</div>
 		<div id="side_menu">
 			<div class="side_block" id="side_up">
-				<div id="add_button" onclick="document.getElementById('file-input').click();"><span>+</span>ADD A BOOK</div>
-				<input id="file-input" type="file" multiple accept=".png" name="my_f_input"/>
+				<div id="add_button" onclick="document.getElementById('file-input').click();">
+					<svg>
+						<path class="cls2" d="M12.950,5.859 C12.950,5.386 12.566,5.002 12.093,5.002 L8.379,5.002 L8.379,1.289 C8.379,0.815 7.995,0.432 7.522,0.432 L5.809,0.432 C5.335,0.432 4.952,0.815 4.952,1.289 L4.952,5.002 L1.238,5.002 C0.765,5.002 0.381,5.386 0.381,5.859 L0.381,7.573 C0.381,8.046 0.765,8.430 1.238,8.430 L4.952,8.430 L4.952,12.143 C4.952,12.616 5.335,13.000 5.809,13.000 L7.522,13.000 C7.995,13.000 8.379,12.616 8.379,12.143 L8.379,8.430 L12.093,8.430 C12.566,8.430 12.950,8.046 12.950,7.573 L12.950,5.859 Z"/>
+					</svg>
+					ADD A BOOK
+					<input id="file-input" type="file" multiple accept=".png" name="my_f_input"/>
+				</div>
 			</div>
 			<div class="hr"></div>
 			<div class="side_block" id="menu_list">
