@@ -107,15 +107,14 @@ function fltrHistory () {
 		});
 }
 
-//var message = "Test message";
 var last;
 function newHistMesAdd(message) {
 	histArr.push(message);
 	localStorage.setItem('histKey', histArr);
 	var newHistDiv = document.createElement("div");
-	newHistDiv.innerHTML = "<li style='list-style: none; background: url(History.svg) 0 2px no-repeat; padding-left: 25px;'>" + 
-	"<p class='hist_mess'>" + message
-	"</p>";
+	newHistDiv.innerHTML = "<li>" + 
+	"<span>" + message
+	"</span>";
 	newHistDiv.className = "history_item";
 	var hist_cont = document.getElementById('history_items');
 	hist_cont.insertBefore(newHistDiv, hist_cont.firstChild);
