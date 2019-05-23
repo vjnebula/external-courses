@@ -1,0 +1,22 @@
+		#search {
+			grid-area:search;
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+			align-items:center;
+			justify-content: flex-end;
+		}
+		#search_field {
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+			align-items:center;
+			justify-content: flex-end;
+			border-radius:10px;
+			border-color:#c7cddb;
+			border-width:1px;
+			background-color:white;
+			margin-right:20px;
+			width:400px;
+			height:25px;	
+		}
