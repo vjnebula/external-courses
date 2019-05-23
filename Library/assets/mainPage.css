@@ -14,14 +14,13 @@
 #Page_title {
 			grid-area:title;
 			color:#444c63;
-			margin-top:20px;
-			margin-left:20px;
-			padding-left:5px;
+			margin-top:25px;
+			/* margin-left:20px; */
+			padding-left:25px;
 			font-family: Proxima Nova;
 			font-size:22pt;
-}
-#Page_title hr {
-	margin-left:-30px;
+			border-bottom: 1px solid #dadfea;
+			
 }
 #main_menu {
 			grdi-area:m_menu;
@@ -53,6 +52,7 @@
 			align-items: flex-start;
 			overflow: auto;
 			background-color:white;
+			border-top: 1px solid #dadfea;
 }
 .m_content {
 			display:flex;
