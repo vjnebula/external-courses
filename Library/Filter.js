@@ -96,10 +96,10 @@ function fltrHistory () {
 	histArr.forEach(
 		function(item){
 			var newHistDiv = document.createElement("div");
-			newHistDiv.innerHTML = "<li style='list-style: none; background: url(History.svg) 0 2px no-repeat; padding-left: 25px;'>" + 
-			"<p class='hist_mess' style='text-align: justify; height:25px; word-wrap: break-word;'>" + item
+			newHistDiv.innerHTML = "<li>" + 
+			"<p class='hist_mess'>" + item
 			"</p>";
-			newHistDiv.className = "m_content";
+			newHistDiv.className = "m_content history_item";
 			var m_c = document.getElementById('main_content');
 			m_c.insertBefore(newHistDiv, m_c.firstChild);
 			m_c.style.flexDirection = 'column';
@@ -107,7 +107,7 @@ function fltrHistory () {
 		});
 }
 
-var last;
+//var last;
 function newHistMesAdd(message) {
 	histArr.push(message);
 	localStorage.setItem('histKey', histArr);
