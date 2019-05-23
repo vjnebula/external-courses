@@ -10,6 +10,9 @@
 		.menu_item:hover svg > path {
 			fill: #fff;
 		}
+		.menu_item:hover svg > use {
+			fill: #fff;
+		}
 		.up_menu:hover {
 			background-color: #15a4fa;
 			color:white;
