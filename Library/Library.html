@@ -4,15 +4,16 @@
   <meta charset="utf-8" name="viewport" content="width=device-width">
   <title>Library</title>
 	<style>
-		@import url("assets/UserLogin.css");
+		@import url("assets/userLogin.css");
 		@import url("assets/addButton.css");
 		@import url("assets/hover.css");
 		@import url("assets/fonts.css");
 		@import url("assets/history.css");
 		@import url("assets/footer.css");
 		@import url("assets/scroll.css");
-		@import url("assets/UpSide.css");
-		@import url("assets/SideMenu.css");
+		@import url("assets/upSide.css");
+		@import url("assets/sideMenu.css");
+		@import url("assets/search.css");
 			
 		#parent {
 			display: grid;
@@ -77,33 +78,11 @@
 			font-family: Proxima Nova;
 			margin-top:5px;
 		}
-		#search {
-			grid-area:search;
-			display:flex;
-			flex-direction:row;
-			flex-wrap:nowrap;
-			align-items:center;
-			justify-content: flex-end;
-		}
-		#search_field {
-			display:flex;
-			flex-direction:row;
-			flex-wrap:nowrap;
-			align-items:center;
-			justify-content: flex-end;
-			border-radius:10px;
-			border-color:#c7cddb;
-			border-width:1px;
-			background-color:white;
-			margin-right:20px;
-			width:400px;
-			height:25px;
-			
-		}
 		#Page_title {
 			grid-area:title;
 			color:#444c63;
 			margin-top:20px;
+			margin-left:20px;
 			padding-left:5px;
 			font-family: Proxima Nova;
 			font-size:22pt;
@@ -257,7 +236,7 @@
 			</div>
 		</div>
 		<div id="main_page">
-			<div class="main_items" id="Page_title" style="margin-left:20px;">Browse Available Books<hr style="margin-left:-30px;"></div>
+			<div class="main_items" id="Page_title">Browse Available Books<hr style="margin-left:-30px;"></div>
 			<div id="main_menu">
 				<div class="m_menu_item" id="f_all">All Books</div>
 				<div class="m_menu_item" id="f_recent">Most Recent</div>
