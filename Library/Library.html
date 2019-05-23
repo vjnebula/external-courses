@@ -19,25 +19,26 @@
 		
 		@font-face {
 			font-family: Proxima Nova;
-			src: url("Proxima Nova Regular.otf");
+			src: url("fonts/Proxima Nova Regular.otf");
 		}
 		@font-face {
 			font-family: Proxima Nova Bold;
-			src: url("Proxima Nova Bold.otf");
+			src: url("fonts/Proxima Nova Bold.otf");
 		}
 		@font-face {
 			font-family: Proxima Nova Light;
-			src: url("Proxima Nova Light.otf");
+			src: url("fonts/Proxima Nova Light.otf");
 		}
 			
 		#parent {
 			display: grid;
-			width: 100%;
+			width: auto;
 			height:100%;
 			grid-template-columns: 200px auto;
 			grid-template-rows: 45px 18fr auto;
 			margin-left:-10px;
-			margin-top:-10px;			
+			margin-right:-10px;
+			margin-top:-10px;
 			grid-template-areas:
 			"up up"
 			"side main"
@@ -129,6 +130,7 @@
 				</div>
 				<div class="menu_item" id = "m_history">
 					<svg>
+						<!-- <use class="cls1" xlink:href="#history_svg" /> -->
 						<path class="cls1" d="M29,639.145a0.282,0.282,0,0,0-.286-0.286H28.141a0.282,0.282,0,0,0-.286.286v3.142h-2a0.282,0.282,0,0,0-.286.286v0.571a0.282,0.282,0,0,0,.286.286h2.856A0.282,0.282,0,0,0,29,643.144v-4Zm3.713,3.142a4.856,4.856,0,1,1-4.856-4.856A4.861,4.861,0,0,1,32.711,642.287Zm2,0a6.855,6.855,0,1,0-6.855,6.856A6.857,6.857,0,0,0,34.711,642.287Z" transform="translate(-21 -635.438)"/>
 					</svg>	
 					<span>History</span>
@@ -201,7 +203,7 @@
 	</svg>
 	<!-- SVG path for history -->
 	<svg xmlns="http://www.w3.org/2000/svg">
-				<defs class = "menu_item">
+				<defs>
 					<path id="history_svg" class="cls1" d="M29,639.145a0.282,0.282,0,0,0-.286-0.286H28.141a0.282,0.282,0,0,0-.286.286v3.142h-2a0.282,0.282,0,0,0-.286.286v0.571a0.282,0.282,0,0,0,.286.286h2.856A0.282,0.282,0,0,0,29,643.144v-4Zm3.713,3.142a4.856,4.856,0,1,1-4.856-4.856A4.861,4.861,0,0,1,32.711,642.287Zm2,0a6.855,6.855,0,1,0-6.855,6.856A6.857,6.857,0,0,0,34.711,642.287Z" transform="translate(-21 -635.438)"/>
 				</defs>
 	</svg>
