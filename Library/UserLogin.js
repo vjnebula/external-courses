@@ -6,6 +6,7 @@ function drp() {
 	var myButton = document.getElementById('signIn');
 	myButton.onclick = userSignIn;
 	myDiv.onclick = drpClose;
+	myDiv.style.backgroundColor = '#15a4fa';
 }//drp
 
 function drpClose() {
@@ -14,6 +15,7 @@ function drpClose() {
 	for (var e of dropElements) {
 		e.style.display = 'none';
 	}//for e
+	myDiv.style.backgroundColor = '#2f364a';
 }//dropClose
 
 function userSignIn() {
