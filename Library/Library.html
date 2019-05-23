@@ -43,18 +43,6 @@
 			"side main"
 			"foot foot";
 		}
-		.hr {
-			position:relative;
-			height:8px;
-			width:100%;
-			background-color: #1c2333;
-			border-bottom:1px solid #252b38;
-			border-top:1px solid black;
-			border-right:1px solid;
-		}
-		li {
-			margin-left:25px;
-		}
 		#hider {
 			display:none;
 		}
@@ -65,8 +53,7 @@
 		.cls2 {
 			fill: #fff;
 			fill-rule: evenodd;
-		}
-		
+		}		
 	</style>
 </head>
 <body>
@@ -101,7 +88,7 @@
 			</div>
 		</div>
 		<div id="side_menu">
-			<div class="side_block" id="side_up">
+			<div class="side_block">
 				<div id="add_button" onclick="document.getElementById('file-input').click();">
 					<svg>
 						<path class="cls2" d="M12.950,5.859 C12.950,5.386 12.566,5.002 12.093,5.002 L8.379,5.002 L8.379,1.289 C8.379,0.815 7.995,0.432 7.522,0.432 L5.809,0.432 C5.335,0.432 4.952,0.815 4.952,1.289 L4.952,5.002 L1.238,5.002 C0.765,5.002 0.381,5.386 0.381,5.859 L0.381,7.573 C0.381,8.046 0.765,8.430 1.238,8.430 L4.952,8.430 L4.952,12.143 C4.952,12.616 5.335,13.000 5.809,13.000 L7.522,13.000 C7.995,13.000 8.379,12.616 8.379,12.143 L8.379,8.430 L12.093,8.430 C12.566,8.430 12.950,8.046 12.950,7.573 L12.950,5.859 Z"/>
@@ -110,8 +97,7 @@
 					<input id="file-input" type="file" multiple accept=".png" name="my_f_input"/>
 				</div>
 			</div>
-			<div class="hr"></div>
-			<div class="side_block" id="menu_list">
+			<div class="side_block">
 				<div class="menu_item" id="f_nowReading">
 					<svg>
 					  <path class="cls1" d="M33.8,180.734a1.048,1.048,0,0,0-.461-0.336,1.252,1.252,0,0,1-.039.446l-2.344,7.711a0.742,0.742,0,0,1-.711.445H23.039a1.088,1.088,0,0,1-1.125-.547,0.314,0.314,0,0,1,.008-0.336,0.362,0.362,0,0,1,.3-0.117h6.789c0.992,0,1.2-.266,1.563-1.469l2.141-7.078a1.148,1.148,0,0,0-.141-1.015A1.08,1.08,0,0,0,31.68,178H25.734a1.794,1.794,0,0,0-.4.07l0.008-.023c-0.992-.281-1.055.789-1.383,1.273a2,2,0,0,0-.344.485c-0.023.14,0.055,0.273,0.039,0.406a4.115,4.115,0,0,1-.547,1.414,1.533,1.533,0,0,0-.344.414,2.452,2.452,0,0,0,.016.469,4.7,4.7,0,0,1-.524,1.422,2.075,2.075,0,0,0-.266.4c-0.039.133,0.039,0.305,0,.453a5.576,5.576,0,0,1-.586,1.43,1.89,1.89,0,0,0-.32.531c-0.016.094,0.055,0.2,0.047,0.321-0.008.187-.039,0.343-0.055,0.5a1.447,1.447,0,0,0,.016.992A2.218,2.218,0,0,0,23.031,190h7.211a1.707,1.707,0,0,0,1.555-1.18l2.148-7.078A1.163,1.163,0,0,0,33.8,180.734Zm-8.312.016,0.164-.5a0.376,0.376,0,0,1,.328-0.25h4.75a0.175,0.175,0,0,1,.172.25l-0.164.5a0.376,0.376,0,0,1-.328.25h-4.75A0.175,0.175,0,0,1,25.492,180.75Zm-0.648,2,0.164-.5a0.376,0.376,0,0,1,.328-0.25h4.75a0.175,0.175,0,0,1,.172.25l-0.164.5a0.376,0.376,0,0,1-.328.25h-4.75A0.175,0.175,0,0,1,24.844,182.75Z" transform="translate(-19 -178)"/>
@@ -148,14 +134,12 @@
 					<span>History</span>
 				</div>
 			</div>
-			<div class="hr"></div>
-			<div class="side_block" id="filter_list">
-					<div class="filter_block" id="f_must"><li><span>Must Read Titles</span></div>
-					<div class="filter_block" id="f_best"><li><span>Best Of List</span></div>
-					<div class="filter_block" id="f_classic"><li><span>Classic Novels</span></div>
-					<div class="filter_block" id="f_non_fiction"><li><span>Non Fiction</span></div>
+			<div class="side_block">
+					<div class="filter_item" id="f_must"><li><span>Must Read Titles</span></div>
+					<div class="filter_item" id="f_best"><li><span>Best Of List</span></div>
+					<div class="filter_item" id="f_classic"><li><span>Classic Novels</span></div>
+					<div class="filter_item" id="f_non_fiction"><li><span>Non Fiction</span></div>
 			</div>
-			<div class="hr"></div>
 			<div class="side_block" id="history_items">
 				<div class="history_item">
 					<li>
