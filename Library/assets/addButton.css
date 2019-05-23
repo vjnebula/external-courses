@@ -5,20 +5,15 @@
 			background-color: #f2795a;
 			height:45px;
 			width:160px;
-			self-align:center;
 			color:white;
 			font-family: Proxima Nova Bold;
 			font-size:14px;
 			font-weight:bold;
 			justify-content:center;
 			align-items:center;
-			margin:30px;
-			margin-bottom:40px;
-}
-#add_button span {
-			font-size:25px; 
-			color:white; 
-			margin-right:15px;
+			margin-top:25px;
+			margin-bottom:15px;
+			margin-left:20px;
 }	
 #add_button svg {
 			width:13px;
