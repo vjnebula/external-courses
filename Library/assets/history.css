@@ -2,10 +2,9 @@
 			display:flex;
 			flex-direction:column;
 			overflow: auto;
-			height:100%;
-			width:100%;
+			/* height:100%; */
 			background-color: #1f2638;
-			
+			margin-bottom: 0px;
 		}
 		#history_items::-webkit-scrollbar {
 			width: 15px;
@@ -24,10 +23,9 @@
 			font-size:12pt;
 			text-align: left;
 			height: 100px;
-			margin-top:35px;
+			margin-top:25px;
 			width:auto;
-			margin-right:20px;
-			
+			margin-right:20px;	
 		}
 		.history_item span {
 			/* height:35px; */
