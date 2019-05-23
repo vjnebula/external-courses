@@ -54,7 +54,7 @@ function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
 		"<div class='book_title'>" + bk_title + "</div>" + 
 		"<div class='book_author'>" + bk_author + "</div>" + 
 		"<div id='stars_parent'>" + 
-			"<svg class='stars' width='75' height='15' viewBox='0 0 75 15'>" + 
+			"<svg class='stars'>" + 
 				"<use x='00' class='SVGstars' xlink:href='#starSVG' />" + 
 				"<use x='15' class='SVGstars' xlink:href='#starSVG' />" +
 				"<use x='30' class='SVGstars' xlink:href='#starSVG' />" + 
