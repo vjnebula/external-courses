@@ -38,7 +38,7 @@
 		}
 		.history_item li {
 			list-style: none; 
-			background: url(../History.svg) 0 4px;
+			background: url(../img/History.svg) 0 4px;
 			background-repeat:no-repeat;
 			padding-left: 25px;
 			margin-left:20px;
