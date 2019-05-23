@@ -17,10 +17,10 @@
 		.up_menu:hover span {
 			color:white;
 		}
-		.filter_block:hover {
+		.filter_item:hover {
 			background-color: #15a4fa;	
 		}
-		.filter_block:hover span{
+		.filter_item:hover span{
 			color: white;	
 		}
 		.m_menu_item:hover {
