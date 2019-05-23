@@ -1,0 +1,69 @@
+#main_page {
+			grid-area:main;
+			display:grid;
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 80px 40px 780px;
+			background-color:#eef1f7;
+			margin-right:-20px;
+			grid-template-areas:
+			"title title"
+			"m_menu search"
+			"m_page m_page";
+}
+
+#Page_title {
+			grid-area:title;
+			color:#444c63;
+			margin-top:20px;
+			margin-left:20px;
+			padding-left:5px;
+			font-family: Proxima Nova;
+			font-size:22pt;
+}
+#Page_title hr {
+	margin-left:-30px;
+}
+#main_menu {
+			grdi-area:m_menu;
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+			align-items:center;
+			justify-content: start;
+			font-size:12pt;
+			color: #78829d;
+			font-family: Proxima Nova;
+}
+
+.m_menu_item {
+			font-family: Proxima Nova;
+			margin-left:20px;
+			padding-left:10px;
+			padding-top:5px;
+			padding-right:10px;
+			padding-bottom:5px;
+}
+
+#main_content {
+			grid-area:m_page;
+			display:flex;
+			flex-direction:row;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			align-items: flex-start;
+			overflow: auto;
+			background-color:white;
+}
+.m_content {
+			display:flex;
+			flex-direction:column;
+			justify-content: left;
+			justify-items:left;
+			align-items:center;
+			margin-left:20px;
+			margin-top:30px;
+}
+.m_content > div {
+			width:200px;
+			heigh:350px;
+}
