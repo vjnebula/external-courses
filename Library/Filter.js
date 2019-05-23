@@ -6,6 +6,7 @@ document.getElementById('f_nowReading').onclick = fltrNowReading;
 document.getElementById('f_free').onclick = fltrFree;
 document.getElementById('f_best').onclick = fltrBest;
 document.getElementById('f_all').onclick = fltrAll;
+document.getElementById('m_browse').onclick = fltrAll;
 document.getElementById('f_non_fiction').onclick = fltrNonFiction;
 document.getElementById('f_classic').onclick = fltrClassic;
 document.getElementById('f_must').onclick = fltrMust;
