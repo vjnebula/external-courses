@@ -53,13 +53,16 @@
 		li {
 			margin-left:25px;
 		}
+		#hider {
+			display:none;
+		}
 		.cls1 {
 			fill: #78829d;
 			fill-rule: evenodd;
 		}
 		.cls2 {
-        fill: #fff;
-        fill-rule: evenodd;
+			fill: #fff;
+			fill-rule: evenodd;
 		}
 		
 	</style>
@@ -75,9 +78,9 @@
 				<div class="dropdown up_menu" id="user_logged">
 					<img src="avatar-01.png" class = "avatar"></img>
 					John Doe
-					<svg class = "img_arrow" width="11.13" height="11.156">
+					<svg>
 						"<use xlink:href='#user_arrow' />"
-					</svg>	
+					</svg>
 				</div>
 				<form action="https://" method="get">
 					<div class="dropdown-content"> 
@@ -98,7 +101,7 @@
 		<div id="side_menu">
 			<div class="side_block" id="side_up">
 				<div id="add_button" onclick="document.getElementById('file-input').click();"><span>+</span>ADD A BOOK</div>
-				<input id="file-input" type="file" multiple accept=".png" name="my_f_input" style="display: none;" />
+				<input id="file-input" type="file" multiple accept=".png" name="my_f_input"/>
 			</div>
 			<div class="hr"></div>
 			<div class="side_block" id="menu_list">
@@ -190,6 +193,7 @@
 		</div>
 	</div>
 	<!-- SVG path for stars -->
+	<div id="hider">
 	<svg xmlns="http://www.w3.org/2000/svg">
 				<defs>
 					<polygon points="8.88 7.59 9.45 10.88 6.5 9.33 3.55 10.89 4.12 7.6 1.73 5.28 5.03 4.79 6.5 1.81 7.98 4.79 11.28 5.28 8.88 7.59"/>
@@ -210,7 +214,7 @@
 					<path id="history_svg" class="cls1" d="M29,639.145a0.282,0.282,0,0,0-.286-0.286H28.141a0.282,0.282,0,0,0-.286.286v3.142h-2a0.282,0.282,0,0,0-.286.286v0.571a0.282,0.282,0,0,0,.286.286h2.856A0.282,0.282,0,0,0,29,643.144v-4Zm3.713,3.142a4.856,4.856,0,1,1-4.856-4.856A4.861,4.861,0,0,1,32.711,642.287Zm2,0a6.855,6.855,0,1,0-6.855,6.856A6.857,6.857,0,0,0,34.711,642.287Z" transform="translate(-21 -635.438)"/>
 				</defs>
 	</svg>
-	
+	</div>
 	<!-- <script src="jquery-3.4.1.min.js"></script> -->
 	<script src="loadJson.js"></script>
 	<script src="search.js"></script>
