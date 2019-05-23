@@ -29,4 +29,8 @@ function userSignIn() {
 }//userSignIn
 
 var myDiv = document.getElementById('user');
+//var myDiv = document.getElementsByClassName('user');
 myDiv.onclick = drp;
+/* for (var u of myDiv) {
+	u.onclick = drp;
+} */
