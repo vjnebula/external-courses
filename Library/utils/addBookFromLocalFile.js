@@ -1,4 +1,4 @@
-var getfiles = function(){
+/* var getfiles = function(){
 			
 			var f_input = document.getElementById('file-input');
 			var bookArr = f_input.files;
@@ -16,4 +16,8 @@ var getfiles = function(){
 				myLib.push(newBook);
 				newHistMesAdd("You added new book " + TitleCut[0]);
 			}
+}//getfiles */
+
+var getfiles = function(){
+	alert("under development!");
 }//getfiles
