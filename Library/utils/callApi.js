@@ -11,7 +11,7 @@ var requestURL = 'https://rsu-library-api.herokuapp.com/books';
 
 var myRequest = new Request('https://rsu-library-api.herokuapp.com/books', myInit);
 
-fetch(myRequest).then(function(response) {
+/* fetch(myRequest).then(function(response) {
 						return response.json();
 							}).then(function(data) {
 								JSON.stringify(data);
@@ -23,4 +23,18 @@ fetch(myRequest).then(function(response) {
 											ContentAdd(d.id, d.title, bk_author, d.image_url);
 											}
 										}
-);
+); */
+//$id, $title, $author, $rating, $cost, $categories, $createdAt, $updatedAt, $image_url
+fetch(myRequest).then(function(response) {
+						return response.json();
+							}).then(function(data) {
+									JSON.stringify(data);
+									for (var d of data) {
+										createABook (Book, d.id, d.title, d.author, d.rating, d.cost, d.categories, d.createdAt, d.updatedAt, d.image_url);
+									}
+								}).then(function(){
+									parseMyLib();
+									});
+								
+
+
