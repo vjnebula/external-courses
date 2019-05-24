@@ -1,9 +1,10 @@
-function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
+//function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
+function ContentAdd(bk) {
 	var content_prnt_div = document.getElementById('main_content');
 	var newDiv = document.createElement("div");
-	newDiv.innerHTML = "<div><img src='" + bk_url + "'></img></div>" + 
-		"<div class='book_title'>" + bk_title + "</div>" + 
-		"<div class='book_author'>" + bk_author + "</div>" + 
+	newDiv.innerHTML = "<div><img src='" + bk.image_url + "'></img></div>" + 
+		"<div class='book_title'>" + bk.title + "</div>" + 
+		"<div class='book_author'>" + bk.authorFullName+ "</div>" + 
 		"<div id='stars_parent'>" + 
 			"<svg class='stars'>" + 
 				"<use x='00' class='SVGstars' xlink:href='#starSVG' />" + 
@@ -15,7 +16,7 @@ function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
 		"</div>";
 	newDiv.className = "m_content";
 	newDiv.style.display = 'flex';
-	newDiv.id = bk_id;
+	newDiv.id = bk.id;
 	content_prnt_div.appendChild(newDiv);
 	setStarsEvent();
 }//ContentAdd
@@ -28,20 +29,18 @@ function view() {
 
 function fltrCat(cat_name) {
 	view();
-	for (var b of myLib) {
-		for (var cat of b.categories){
-			if (cat == cat_name) {
-				document.getElementById(b.id).style.display = 'flex';
+	for (var b in myLib) {
+		if (myLib[b].getCat(cat_name)) {
+				document.getElementById(myLib[b].id).style.display = 'flex';
 			}
 		}
-	}
 }//fltrCat
 
 function fltrAll() {
 	view();
-	for (var b of myLib) {
-				document.getElementById(b.id).style.display = 'flex';
-				document.getElementById(b.id).style.order = "";
+	for (var b in myLib) {
+				document.getElementById(myLib[b].id).style.display = 'flex';
+				document.getElementById(myLib[b].id).style.order = "";
 	}
 }//fltrAll
 
@@ -55,9 +54,9 @@ function hideAll() {
 function fltrPopular() {
 	fltrAll();
 	newHistMesAdd("You used Most Popular filter");
-	for (var b of myLib) {
-		if (b.rating < 5){
-				document.getElementById(b.id).style.display = 'none';
+	for (var b in myLib) {
+		if (myLib[b].rating < 5){
+				document.getElementById(myLib[b].id).style.display = 'none';
 		}
 	}
 }//fltrPopular
@@ -65,19 +64,20 @@ function fltrPopular() {
 function fltrFree() {
 	fltrAll();
 	newHistMesAdd("You used Free Books filter");
-	for (var b of myLib) {
-		if (b.cost > 50){
-				document.getElementById(b.id).style.display = 'none';
+	for (var b in myLib) {
+		if (myLib[b].cost > 50){
+				document.getElementById(myLib[b].id).style.display = 'none';
 		}
 	}
 }//fltrFree
 
 function fltrFavor () {
 	view();
-	for (var book of myLib) {
-		if ( localStorage.getItem(+book.id) ) {
-				if (localStorage.getItem(+book.id) > 2 ) {
-					document.getElementById(book.id).style.display = 'flex';
+	for (var b in myLib) {
+		var id = myLib[b].id;
+		if ( localStorage.getItem(+id) ) {
+				if (localStorage.getItem(+id) > 2 ) {
+					document.getElementById(id).style.display = 'flex';
 				}
 		}
 	}
@@ -97,13 +97,13 @@ function fltrRecent() {
 	
 	itemsArr.sort(function(a, b) {
 			var a_crt, b_crt;
-			for (var book of myLib) {
-				if (book.id == a.id){
-						//a_crt = book.createdAt;
+			for (var book in myLib) {
+				if (myLib[book].id == a.id){
+						//a_crt = myLib[book].createdAt;
 						a_crt = Math.random();
 				}
-				if (book.id == b.id){
-						//b_crt = book.createdAt;
+				if (myLib[book].id == b.id){
+						//b_crt = myLib[book].createdAt;
 						b_crt = Math.random();
 				}
 			};
