@@ -39,3 +39,21 @@ function fltrNonFiction() {
 function fltrNowReading() {
 	fltrRecent();//with updatedAt field, no mater because of random
 }//fltrNowReading
+
+
+function setRate() {
+		var prnt = this.parentElement;
+		var prntLngth = prnt.children.length;
+		if (this.onmouseleave == clear) {
+			for (var i = 0; i < prntLngth; i++) {
+				if (prnt.children[i] == this ){
+					setRating((i+1)/2, prnt);
+					return;
+				}//if
+			}//for i
+		}//if target clear
+		if (this.onmouseleave == null) {
+			setRating(0, prnt);
+		}//if target null
+};//setRate
+
