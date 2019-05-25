@@ -31,7 +31,7 @@ class Book {
 	set newRating(number) {
 		this.rating = number;
 		newHistMesAdd("You set new rating of " + this.rating + " stars for " + this.title );
-		localStorage.setItem(+this.id, this.rating);
+		sessionStorage.setItem(+this.id, this.rating);
 	}
 	
 	getCat(cat_name) {
