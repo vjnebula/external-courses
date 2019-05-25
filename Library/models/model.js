@@ -28,6 +28,12 @@ class Book {
 		return this.updatedAt = dt;
 	}
 	
+	set newRating(number) {
+		this.rating = number;
+		newHistMesAdd("You set new rating of " + this.rating + " stars for " + this.title );
+		localStorage.setItem(+this.id, this.rating);
+	}
+	
 	getCat(cat_name) {
 		for (var cat of this.categories){
 			if (cat == cat_name) { return true;}
