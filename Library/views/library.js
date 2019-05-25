@@ -159,3 +159,14 @@ function preloaderOff() {
 	}
 	document.getElementById('space').style.animationName = "";
 }
+
+function showHelp() {
+	hideAll();
+	var newHelpDiv = document.createElement("div");
+	newHelpDiv.innerHTML = myHelp;
+	newHelpDiv.className = "m_content m_help"
+	var m_c = document.getElementById('main_content');
+	m_c.appendChild(newHelpDiv);
+	m_c.style.flexDirection = 'column';
+	m_c.style.flexWrap = 'nowrap';
+}
