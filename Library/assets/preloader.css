@@ -1,0 +1,38 @@
+		@keyframes rotate {
+		  100% {
+			transform: rotateZ(360deg);
+		  }
+		}
+/* 		.parent {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			<!-- flex-direction:column; -->
+			justify-content:center;	
+		} */
+		.sphere {
+			z-index:2;
+			align-self: center;
+			width:20px;
+			height:20px;
+			border-radius:100%;
+			background: radial-gradient(circle at 65% 65%, #FFFFFF, #15a4fa);
+			position:relative;
+		}
+		#space{
+			display:none;
+			z-index:2;
+			position:absolute;
+			animation-name:rotate;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			display:flex;
+			justify-content:center;
+			align-content:center;
+			width: 20%;
+			height: 20%;
+			align-self: top;
+			margin-top:10%;
+			filter: drop-shadow(4px 4px 4px #15a4fa);
+		}

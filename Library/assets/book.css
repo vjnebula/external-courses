@@ -1,0 +1,14 @@
+.book_title {
+			color:#444c63;
+			font-size:16px;
+			text-align:left;
+			font-family: Proxima Nova;
+			margin-top:15px;
+		}
+.book_author {
+			color:#6f7d95;
+			font-size:12px;
+			text-align:left;
+			font-family: Proxima Nova;
+			margin-top:5px;
+}
