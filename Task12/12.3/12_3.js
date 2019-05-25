@@ -1,53 +1,63 @@
-function clear (event) {
-		for (var i = 0; i<5; i++) {
-			prnt.children[i].style.background = '';
-			if (prnt.children[i] == event.target ){
+function clear () {
+		var prnt = this.parentElement;
+		for (var i = 0; i < prnt.children.length; i++) {
+			prnt.children[i].style.fill = '';
+			if (prnt.children[i] == this ){
 				return;
 			}
 		} 
 };//clear
-function setFill (event) {
-		for (var i = 0; i<5; i++) {
-			prnt.children[i].style.background = 'yellow';
-			if (prnt.children[i] == event.target ){
+
+function setFill () {
+		var prnt = this.parentElement;
+		for (var i = 0; i < prnt.children.length; i++) {
+			prnt.children[i].style.fill = '#ffab00';
+			if (prnt.children[i] == this ){
 				return;
 			}
 		}
 };//setFill
 
-function setRate (event) {
-		var target = event.target;
-		if (target.onmouseout == clear) {
-			for (var i = 0; i<5; i++) {
-				prnt.children[i].style.background = 'yellow';
-				prnt.children[i].onmouseout = null;
-				if (prnt.children[i] == event.target ){
+function setRating(rating, prnt) {
+	var cur_id = prnt.parentElement.parentElement.id;
+	var prntLngth = prnt.children.length;
+	if ( rating <= 0  ) {
+		for (var i = 0; i < prntLngth; i++) {
+			prnt.children[i].style.fill = '';
+			prnt.children[i].onmouseleave = clear;
+			prnt.children[i].onmouseenter = setFill;
+		}//for i
+	} else {
+		for (var i = 0; i < prntLngth; i++) {
+			prnt.children[i].onmouseleave = null;
+			prnt.children[i].onmouseenter = null;
+			if ( i < (rating*2)) {
+				prnt.children[i].style.fill = '#ffab00';
+			}
+		}
+	}
+}
+
+
+function setRate() {
+		var prnt = this.parentElement;
+		var prntLngth = prnt.children.length;
+		if (this.onmouseleave == clear) {
+			for (var i = 0; i < prntLngth; i++) {
+				if (prnt.children[i] == this ){
+					setRating((i+1)/2, prnt);
 					return;
 				}//if
 			}//for i
 		}//if target clear
-		if (target.onmouseout == null) {
-			for (var i = 0; i<5; i++) {
-				prnt.children[i].style.background = '';
-				prnt.children[i].onmouseout = clear;
-				/* if (prnt.children[i] == target ){
-					return;
-				}//if */
-			}//for i
+		if (this.onmouseleave == null) {
+			setRating(0, prnt);
 		}//if target null
 };//setRate
 
-var star1 = document.getElementById('star1');
-var star2 = document.getElementById('star2');
-var star3 = document.getElementById('star3');
-var star4 = document.getElementById('star4');
-var star5 = document.getElementById('star5');
-var prnt  = document.getElementById('parent');
-
-var starArr = document.getElementsByClassName('stars');
-//starArr = starArr.slice();
+var starArr = document.getElementsByClassName('SVGstars');
 for (var s of starArr) {
-s.onmouseover = setFill;
-s.onmouseout = clear;
-s.onclick = setRate;
+	s.onmouseenter = setFill;
+	s.onmouseleave = clear;
+	s.onclick = setRate;
 }
