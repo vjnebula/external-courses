@@ -7,24 +7,9 @@ var myInit = { method: 'GET',
                mode: 'cors',
                cache: 'default' };
 var requestURL = 'https://rsu-library-api.herokuapp.com/books';
-//var myRequest = new XMLHttpRequest('GET', requestURL, false);
 
 var myRequest = new Request('https://rsu-library-api.herokuapp.com/books', myInit);
 
-/* fetch(myRequest).then(function(response) {
-						return response.json();
-							}).then(function(data) {
-								JSON.stringify(data);
-								return myLib = data;
-								//lib = data;
-									}).then(function(myLib) {
-											for (var d of myLib) {
-											var bk_author = d.author.firstName + " " + d.author.lastName;
-											ContentAdd(d.id, d.title, bk_author, d.image_url);
-											}
-										}
-); */
-//$id, $title, $author, $rating, $cost, $categories, $createdAt, $updatedAt, $image_url
 fetch(myRequest).then(function(response) {
 						return response.json();
 							}).then(function(data) {
@@ -34,6 +19,8 @@ fetch(myRequest).then(function(response) {
 									}
 								}).then(function(){
 									parseMyLib();
+									}).then(function (){
+										setTimeout(preloaderOff,500);
 									});
 								
 
