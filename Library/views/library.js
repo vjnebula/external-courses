@@ -24,7 +24,11 @@ function ContentAdd(bk) {
 	newDiv.id = bk.id;
 	content_prnt_div.appendChild(newDiv);
 	//setStarsEvent();
-	setRating(bk.rating, newDiv.childNodes[3].childNodes[0]);
+	var bkRating = bk.rating;
+	if ( sessionStorage.getItem(bk.id) ){
+		bkRating = sessionStorage.getItem(bk.id);
+	}
+	setRating(bkRating, newDiv.childNodes[3].childNodes[0]);
 }//ContentAdd
 
 function view() {
