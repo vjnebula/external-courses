@@ -17,6 +17,7 @@
 		@import url("assets/stars.css");
 		@import url("assets/mainPage.css");
 		@import url("assets/book.css");
+		@import url("assets/help.css");
 		
 		@font-face {
 			font-family: Proxima Nova;
@@ -61,7 +62,7 @@
 <body>
 	<div id="parent">
 		<div id="up">
-			<div class="up_menu"><span>Help Center</span></div>
+			<div class="up_menu" id="help"><span>Help Center</span></div>
 			<div><li class = "up_li"></div>
 			<div class="up_menu"><span>Our Support</span></div>
 			<div class="up_menu">
@@ -204,6 +205,7 @@
 				</defs>
 	</svg>
 	</div>
+	<script src="help/help.js"></script>
 	<script src="utils/callApi.js"></script>
 	<script src="utils/debounce.js"></script>
 	<script src="utils/addBookFromLocalFile.js"></script>
