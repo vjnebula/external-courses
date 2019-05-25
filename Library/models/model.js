@@ -54,7 +54,6 @@ function createABook (ABook, $id, $title, $author, $rating, $cost, $categories, 
 
 function parseMyLib() {
 	for (var b in myLib){
-		//ContentAdd(myLib[b].id, myLib[b].title, myLib[b].author, myLib[b].image_url);
 		ContentAdd(myLib[b]);
 		}
 }
