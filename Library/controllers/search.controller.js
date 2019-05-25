@@ -1,7 +1,6 @@
 var s_input = document.getElementById('search_input');
 
 s_input.addEventListener("search", function() {
-	//event.preventDefault();
 	if (this.value != "") {
 		newHistMesAdd("You has searched for " + this.value);
 		search_myLib(this.value);
