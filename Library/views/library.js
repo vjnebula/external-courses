@@ -6,12 +6,17 @@ function ContentAdd(bk) {
 		"<div class='book_title'>" + bk.title + "</div>" + 
 		"<div class='book_author'>" + bk.authorFullName+ "</div>" + 
 		"<div id='stars_parent'>" + 
-			"<svg class='stars'>" + 
-				"<use x='00' class='SVGstars' xlink:href='#starSVG' />" + 
-				"<use x='15' class='SVGstars' xlink:href='#starSVG' />" +
-				"<use x='30' class='SVGstars' xlink:href='#starSVG' />" + 
-				"<use x='45' class='SVGstars' xlink:href='#starSVG' />" + 
-				"<use x='60' class='SVGstars' xlink:href='#starSVG' />"+
+			"<svg class='stars' pointer-events='bounding-box'>" + 
+				"<use x='00' class='SVGstars' xlink:href='#stL' />" + 
+				"<use x='00' class='SVGstars' xlink:href='#stR' />" + 
+				"<use x='15' class='SVGstars' xlink:href='#stL' />" + 
+				"<use x='15' class='SVGstars' xlink:href='#stR' />" + 
+				"<use x='30' class='SVGstars' xlink:href='#stL' />" + 
+				"<use x='30' class='SVGstars' xlink:href='#stR' />" + 
+				"<use x='45' class='SVGstars' xlink:href='#stL' />" + 
+				"<use x='45' class='SVGstars' xlink:href='#stR' />" + 
+				"<use x='60' class='SVGstars' xlink:href='#stL' />" + 
+				"<use x='60' class='SVGstars' xlink:href='#stR' />" + 
 			"</svg>"+
 		"</div>";
 	newDiv.className = "m_content";
@@ -20,6 +25,23 @@ function ContentAdd(bk) {
 	content_prnt_div.appendChild(newDiv);
 	setStarsEvent();
 }//ContentAdd
+
+
+function setRate() {
+		var prnt = this.parentElement;
+		var prntLngth = prnt.children.length;
+		if (this.onmouseleave == clear) {
+			for (var i = 0; i < prntLngth; i++) {
+				if (prnt.children[i] == this ){
+					setRating((i+1)/2, prnt);
+					return;
+				}//if
+			}//for i
+		}//if target clear
+		if (this.onmouseleave == null) {
+			setRating(0, prnt);
+		}//if target null
+};//setRate
 
 function view() {
 	hideAll();
