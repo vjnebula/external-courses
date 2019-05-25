@@ -4,7 +4,7 @@ function ContentAdd(bk) {
 	var newDiv = document.createElement("div");
 	newDiv.innerHTML = "<div><img src='" + bk.image_url + "'></img></div>" + 
 		"<div class='book_title'>" + bk.title + "</div>" + 
-		"<div class='book_author'>" + bk.authorFullName+ "</div>" + 
+		"<div class='book_author'>" + bk.authorFullName+ "</div>" +
 		"<div id='stars_parent'>" + 
 			"<svg class='stars' pointer-events='bounding-box'>" + 
 				"<use x='00' class='SVGstars' xlink:href='#stL' />" + 
@@ -19,29 +19,13 @@ function ContentAdd(bk) {
 				"<use x='60' class='SVGstars' xlink:href='#stR' />" + 
 			"</svg>"+
 		"</div>";
-	newDiv.className = "m_content";
+	newDiv.className = 'm_content';
 	newDiv.style.display = 'flex';
 	newDiv.id = bk.id;
 	content_prnt_div.appendChild(newDiv);
-	setStarsEvent();
+	//setStarsEvent();
+	setRating(bk.rating, newDiv.childNodes[3].childNodes[0]);
 }//ContentAdd
-
-
-function setRate() {
-		var prnt = this.parentElement;
-		var prntLngth = prnt.children.length;
-		if (this.onmouseleave == clear) {
-			for (var i = 0; i < prntLngth; i++) {
-				if (prnt.children[i] == this ){
-					setRating((i+1)/2, prnt);
-					return;
-				}//if
-			}//for i
-		}//if target clear
-		if (this.onmouseleave == null) {
-			setRating(0, prnt);
-		}//if target null
-};//setRate
 
 function view() {
 	hideAll();
@@ -116,7 +100,6 @@ function fltrRecent() {
 			itemsArr.push(items[i]);
 		}
 	}
-	
 	itemsArr.sort(function(a, b) {
 			var a_crt, b_crt;
 			for (var book in myLib) {
@@ -139,9 +122,7 @@ function newHistMesAdd(message) {
 	histArr.push(message);
 	localStorage.setItem('histKey', histArr);
 	var newHistDiv = document.createElement("div");
-	newHistDiv.innerHTML = "<li>" + 
-	"<span>" + message
-	"</span>";
+	newHistDiv.innerHTML = `<li><span>${message}</span>`;
 	newHistDiv.className = "history_item";
 	var hist_cont = document.getElementById('history_items');
 	hist_cont.insertBefore(newHistDiv, hist_cont.firstChild);
@@ -155,9 +136,10 @@ function fltrHistory () {
 	histArr.forEach(
 		function(item){
 			var newHistDiv = document.createElement("div");
-			newHistDiv.innerHTML = "<li>" + 
-			"<p class='hist_mess'>" + item
-			"</p>";
+			newHistDiv.innerHTML = `<span class='main_history hist_mess'>
+										<svg><use class='cls1' xlink:href='#history_svg'/></svg>
+										${item}
+									</span>`;
 			newHistDiv.className = "m_content history_item";
 			var m_c = document.getElementById('main_content');
 			m_c.insertBefore(newHistDiv, m_c.firstChild);
@@ -165,3 +147,11 @@ function fltrHistory () {
 			m_c.style.flexWrap = 'nowrap';
 		});
 }//fltrHistory
+
+function preloaderOff() {
+	var sphere = document.getElementsByClassName('sphere');
+	for (var sph of sphere) {
+		sph.style.display = 'none'
+	}
+	document.getElementById('space').style.animationName = "";
+}
