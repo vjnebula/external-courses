@@ -33,9 +33,9 @@ function createABook (ABook, $id, $title, $author, $rating, $cost, $categories, 
 }//createABook
 
 
-function createABook (ABook, 1,"Jewels of Nizam",{"firstName":"Geeta","lastName":"Devi"},5,100,["must_read","best","non_fiction"],1506943763424,1528046197707,"http://rsu-library-api.herokuapp.com/static/images/1.jpg"){
+/* function createABook (ABook, 1,"Jewels of Nizam",{"firstName":"Geeta","lastName":"Devi"},5,100,["must_read","best","non_fiction"],1506943763424,1528046197707,"http://rsu-library-api.herokuapp.com/static/images/1.jpg"){
 	let book = new ABook($id, $title, $author, $rating, $cost, $categories, $createdAt, $updatedAt, $image_url);
 
 	allBooks[book.id] = book;
 	return book;
-}//createABook
+}//createABook */
