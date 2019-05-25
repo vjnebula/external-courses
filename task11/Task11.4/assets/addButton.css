@@ -1,0 +1,21 @@
+#add_button {
+			display:flex;
+			position:relative;
+			border-radius: 5px;
+			background-color: #f2795a;
+			height:45px;
+			width:160px;
+			color:white;
+			font-family: Proxima Nova Bold;
+			font-size:14px;
+			justify-content:center;
+			align-items:center;
+			margin-top:25px;
+			margin-bottom:15px;
+			margin-left:20px;
+}	
+#add_button svg {
+			width:13px;
+			height:13px;
+			margin-right:20px;
+}
