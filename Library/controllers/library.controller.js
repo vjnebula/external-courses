@@ -12,6 +12,7 @@ document.getElementById('f_classic').onclick = fltrClassic;
 document.getElementById('f_must').onclick = fltrMust;
 document.getElementById('f_popular').onclick = fltrPopular;
 document.getElementById('m_history').onclick = fltrHistory;
+document.getElementById('help').onclick = showHelp;
 
 var myDiv = document.getElementById('user');
 myDiv.onclick = drp;
