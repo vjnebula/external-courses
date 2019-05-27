@@ -1,17 +1,14 @@
-var getfiles = function(){
-			
-			var f_input = document.getElementById('file-input');
-			var bookArr = f_input.files;
-			var arrLength = bookArr.length;
+var getFiles = function(){
+			var bookArr = document.getElementById('file-input').files;
 			var bookfile;
-			for (var i = 0; i < arrLength; i++) {
+			for (var i = 0; i < bookArr.length; i++) {
 				bookfile = bookArr[i];
-				TitleCut = bookfile.name.split(" by ");
-				bookUrl = window.URL.createObjectURL(bookfile);
-				TitleCut[1] = TitleCut[1].replace(".png", " ");
-				createABook (Book, "addBook" + i, TitleCut[0], {}, 3, 0, ["must_read","best","non_fiction"], Date(), Date(), bookUrl);
-				myLib["addBook" + i].authorFullName = TitleCut[1];
+				var titleCut = bookfile.name.split(" by ");
+				var bookUrl = URL.createObjectURL(bookfile);
+				titleCut[1] = titleCut[1].replace(".png", " ");
+				createABook (Book, "addBook" + i, titleCut[0], {}, 3, 0, ["must_read","best","non_fiction"], Date(), Date(), bookUrl);
+				myLib["addBook" + i].authorFullName = titleCut[1];
 				ContentAdd(myLib["addBook" + i]);
-				newHistMesAdd("You added new book " + TitleCut[0]);
+				newHistoryMessageAdd("You added new book " + titleCut[0]);
 			}
-}//getfiles
+}//getFiles

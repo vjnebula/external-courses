@@ -1,29 +1,19 @@
-function setStarsEvent(){
-	var starArr = document.getElementsByClassName('SVGstars');
-	for (var s of starArr) {
-		s.onmouseenter = setFill;
-		s.onmouseleave = clear;
-		s.onclick = setRate;
-	}
-}//setStarsEvent
-
-
-function setRating(rating = 0, prnt) {
-	var cur_id = prnt.parentElement.parentElement.id;
-	var prntLngth = prnt.children.length;
+function setRating(rating = 0, starsParent) {
+	var cur_id = starsParent.parentElement.parentElement.id;
 	if ( rating <= 0  ) {
-		for (var i = 0; i < prntLngth; i++) {
-			prnt.children[i].style.fill = '';
-			prnt.children[i].onmouseleave = clear;
-			prnt.children[i].onmouseenter = setFill;
+		for (var i = 0; i < starsParent.children.length; i++) {
+			starsParent.children[i].style.fill = '';
+			starsParent.children[i].onmouseleave = clear;
+			starsParent.children[i].onmouseenter = setFill;
+			starsParent.children[i].onclick = setRate;
 		}//for i
 	} else {
-		for (var i = 0; i < prntLngth; i++) {
-			prnt.children[i].onmouseleave = null;
-			prnt.children[i].onmouseenter = null;
-			prnt.children[i].onclick = setRate;
+		for (var i = 0; i < starsParent.children.length; i++) {
+			starsParent.children[i].onmouseleave = null;
+			starsParent.children[i].onmouseenter = null;
+			starsParent.children[i].onclick = setRate;
 			if ( i < (rating*2)) {
-				prnt.children[i].style.fill = '#ffab00';
+				starsParent.children[i].style.fill = '#ffab00';
 			}
 		}
 	}

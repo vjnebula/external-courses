@@ -28,13 +28,13 @@
 	margin:0px;
 	width:3px;	
 }
-#user_logged {
+.user_logged {
 	display:none; 
 	color:white; 
 	white-space:nowrap; 
 	text-align:center;
 }
-#user_logged svg {
+.user_logged svg {
 	margin-left:20px; 
 	padding-right:20px;
 	width:11px; 

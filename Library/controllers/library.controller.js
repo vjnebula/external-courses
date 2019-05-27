@@ -1,4 +1,4 @@
-document.getElementById('file-input').onchange = getfiles;
+document.getElementById('file-input').onchange = getFiles;
 
 document.getElementById('f_recent').onclick = fltrRecent;
 document.getElementById('f_favourite').onclick = fltrFavor;
@@ -15,26 +15,26 @@ document.getElementById('m_history').onclick = fltrHistory;
 document.getElementById('help').onclick = showHelp;
 
 var myDiv = document.getElementById('user');
-myDiv.onclick = drp;
+myDiv.onclick = drop;
 
 function fltrMustReadTitles() {
 	fltrCat("must_read");
-	newHistMesAdd("You used Must Read filter");
+	newHistoryMessageAdd("You used Must Read filter");
 }
 
 function fltrBest() {
 	fltrCat("best");
-	newHistMesAdd("You used Best filter");
+	newHistoryMessageAdd("You used Best filter");
 }
 
 function fltrClassic() {
 	fltrCat("classic");
-	newHistMesAdd("You used Classic filter");
+	newHistoryMessageAdd("You used Classic filter");
 }
 
 function fltrNonFiction() {
 	fltrCat("non_fiction");
-	newHistMesAdd("You used Non Fiction filter");
+	newHistoryMessageAdd("You used Non Fiction filter");
 }
 
 function fltrNowReading() {
@@ -43,18 +43,17 @@ function fltrNowReading() {
 
 
 function setRate() {
-		var prnt = this.parentElement;
-		var prntLngth = prnt.children.length;
+		var parentElement = this.parentElement;
 		if (this.onmouseleave == clear) {
-			for (var i = 0; i < prntLngth; i++) {
-				if (prnt.children[i] == this ){
-					setRating((i+1)/2, prnt);
+			for (var i = 0; i < parentElement.children.length; i++) {
+				if (parentElement.children[i] == this ){
+					setRating((i+1)/2, parentElement);
 					return;
 				}//if
 			}//for i
 		}//if target clear
 		if (this.onmouseleave == null) {
-			setRating(0, prnt);
+			setRating(0, parentElement);
 		}//if target null
 };//setRate
 

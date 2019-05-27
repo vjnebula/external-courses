@@ -1,5 +1,4 @@
 function ContentAdd(bk) {
-	var content_prnt_div = document.getElementById('main_content');
 	var newDiv = document.createElement("div");
 	newDiv.innerHTML = "<div><img src='" + bk.image_url + "'></img></div>" + 
 		"<div class='book_title'>" + bk.title + "</div>" + 
@@ -21,7 +20,7 @@ function ContentAdd(bk) {
 	newDiv.className = 'm_content';
 	newDiv.style.display = 'flex';
 	newDiv.id = bk.id;
-	content_prnt_div.appendChild(newDiv);
+	document.getElementById('main_content').appendChild(newDiv);
 	var bkRating = bk.rating;
 	if ( sessionStorage.getItem(bk.id) ){
 		bkRating = sessionStorage.getItem(bk.id);
@@ -61,7 +60,7 @@ function hideAll() {
 
 function fltrPopular() {
 	fltrAll();
-	newHistMesAdd("You used Most Popular filter");
+	newHistoryMessageAdd("You used Most Popular filter");
 	for (var b in myLib) {
 		if (myLib[b].rating < 5){
 				document.getElementById(myLib[b].id).style.display = 'none';
@@ -71,7 +70,7 @@ function fltrPopular() {
 
 function fltrFree() {
 	fltrAll();
-	newHistMesAdd("You used Free Books filter");
+	newHistoryMessageAdd("You used Free Books filter");
 	for (var b in myLib) {
 		if (myLib[b].cost > 50){
 				document.getElementById(myLib[b].id).style.display = 'none';
@@ -93,7 +92,7 @@ function fltrFavor () {
 
 function fltrRecent() {
 	fltrAll();
-	newHistMesAdd("You used Most Recent filter");
+	newHistoryMessageAdd("You used Most Recent filter");
 	var list = document.getElementById('main_content');
 	var items = list.childNodes;
 	var itemsArr = [];
@@ -120,7 +119,7 @@ function fltrRecent() {
 	CheckParam(items, itemsArr, setOrder, checkId);
 }//fltrRecent
 
-function newHistMesAdd(message) {
+function newHistoryMessageAdd(message) {
 	histArr.push(message);
 	localStorage.setItem('histKey', histArr);
 	var newHistDiv = document.createElement("div");
@@ -131,7 +130,7 @@ function newHistMesAdd(message) {
 	while(hist_cont.children.length > 3){
 		hist_cont.lastChild.remove();
 	}
-}//newHistMesAdd
+}//newHistoryMessageAdd
 
 function fltrHistory () {
 	hideAll();
@@ -139,7 +138,7 @@ function fltrHistory () {
 		function(item){
 			var newHistDiv = document.createElement("div");
 			newHistDiv.innerHTML = `<span class='main_history hist_mess'>
-										<svg><use class='cls1' xlink:href='#history_svg'/></svg>
+										<svg><use class='svg_gray' xlink:href='#history_svg'/></svg>
 										${item}
 									</span>`;
 			newHistDiv.className = "m_content history_item";

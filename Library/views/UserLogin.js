@@ -1,30 +1,30 @@
-function drp() {
+function drop() {
 	var dropElements = document.getElementsByClassName('dropdown-content');
-	for (var e of dropElements) {
-		e.style.display = 'block';
+	for (var elem of dropElements) {
+		elem.style.display = 'block';
 	}//for e
 	var myButton = document.getElementById('signIn');
 	myButton.onclick = userSignIn;
-	myDiv.onclick = drpClose;
+	myDiv.onclick = dropClose;
 	myDiv.style.backgroundColor = '#15a4fa';
-}//drp
+}//drop
 
-function drpClose() {
+function dropClose() {
 	var dropElements = document.getElementsByClassName('dropdown-content');
-	myDiv.onclick = drp;
-	for (var e of dropElements) {
-		e.style.display = 'none';
+	myDiv.onclick = drop;
+	for (var elem of dropElements) {
+		elem.style.display = 'none';
 	}//for e
 	myDiv.style.backgroundColor = '#2f364a';
 }//dropClose
 
 function userSignIn() {
 	var dropElements = document.getElementsByClassName('dropdown-content');
-	//myDiv.onclick = drp;
-	for (var e of dropElements) {
-		e.style.display = 'none';
+	//myDiv.onclick = drop;
+	for (var elem of dropElements) {
+		elem.style.display = 'none';
 	}//for e
 	myDiv.onclick = "";
 	myDiv.style.display = 'none';
-	document.getElementById('user_logged').style.display = 'flex';
+	document.getElementsByClassName('user_logged')[0].style.display = 'flex';
 }//userSignIn

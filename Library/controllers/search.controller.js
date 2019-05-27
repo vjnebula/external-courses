@@ -2,7 +2,7 @@ var s_input = document.getElementById('search_input');
 
 s_input.addEventListener("search", function() {
 	if (this.value != "") {
-		newHistMesAdd("You has searched for " + this.value);
+		newHistoryMessageAdd("You has searched for " + this.value);
 		search_myLib(this.value);
 		} else {
 			fltrAll();
@@ -12,15 +12,15 @@ s_input.addEventListener("search", function() {
 
 keyup();//initialize search field
 
-function search_myLib(s_str) {
+function search_myLib(search_string) {
 
 	for (var b in myLib) {
 			var cur_book = document.getElementById(b);
 			
 			//if book is visible, search in book title + author
 			if (cur_book.style.display != 'none' ) {
-				var compound_str = myLib[b].title + myLib[b].authorFullName;
-				if (compound_str.toLowerCase().search(s_str.toLowerCase()) > -1) {
+				var compound_string = myLib[b].title + myLib[b].authorFullName;
+				if (compound_string.toLowerCase().search(search_string.toLowerCase()) > -1) {
 					cur_book.style.display = 'flex';
 				} else { 
 					cur_book.style.display = 'none'; 

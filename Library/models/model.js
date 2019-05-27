@@ -30,13 +30,13 @@ class Book {
 	
 	set newRating(number) {
 		this.rating = number;
-		newHistMesAdd("You set new rating of " + this.rating + " stars for " + this.title );
+		newHistoryMessageAdd("You set new rating of " + this.rating + " stars for " + this.title );
 		sessionStorage.setItem(+this.id, this.rating);
 	}
 	
 	getCat(cat_name) {
 		for (var cat of this.categories){
-			if (cat == cat_name) { return true;}
+			if (cat === cat_name) { return true;}
 				else {return false}
 		}
 	}
@@ -61,7 +61,7 @@ function parseMyLib() {
 
 
 function checkId (col_item, arr_item) {
-		return col_item.id == arr_item.id;
+		return col_item.id === arr_item.id;
 }
 
 function setOrder(col_item, arr_item, index, cb) {
