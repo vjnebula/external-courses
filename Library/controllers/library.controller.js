@@ -9,7 +9,7 @@ document.getElementById('f_all').onclick = fltrAll;
 document.getElementById('m_browse').onclick = fltrAll;
 document.getElementById('f_non_fiction').onclick = fltrNonFiction;
 document.getElementById('f_classic').onclick = fltrClassic;
-document.getElementById('f_must').onclick = fltrMust;
+document.getElementById('f_must').onclick = fltrMustReadTitles;
 document.getElementById('f_popular').onclick = fltrPopular;
 document.getElementById('m_history').onclick = fltrHistory;
 document.getElementById('help').onclick = showHelp;
@@ -17,7 +17,7 @@ document.getElementById('help').onclick = showHelp;
 var myDiv = document.getElementById('user');
 myDiv.onclick = drp;
 
-function fltrMust() {
+function fltrMustReadTitles() {
 	fltrCat("must_read");
 	newHistMesAdd("You used Must Read filter");
 }
@@ -38,8 +38,8 @@ function fltrNonFiction() {
 }
 
 function fltrNowReading() {
-	fltrRecent();//with updatedAt field, no mater because of random
-}//fltrNowReading
+	fltrRecent();
+}
 
 
 function setRate() {

@@ -26,6 +26,5 @@ function userSignIn() {
 	}//for e
 	myDiv.onclick = "";
 	myDiv.style.display = 'none';
-	var userMenu = document.getElementById('user_logged');
-	userMenu.style.display = 'flex';
+	document.getElementById('user_logged').style.display = 'flex';
 }//userSignIn

@@ -1,4 +1,3 @@
-//function ContentAdd(bk_id, bk_title, bk_author, bk_url) {
 function ContentAdd(bk) {
 	var content_prnt_div = document.getElementById('main_content');
 	var newDiv = document.createElement("div");
@@ -23,7 +22,6 @@ function ContentAdd(bk) {
 	newDiv.style.display = 'flex';
 	newDiv.id = bk.id;
 	content_prnt_div.appendChild(newDiv);
-	//setStarsEvent();
 	var bkRating = bk.rating;
 	if ( sessionStorage.getItem(bk.id) ){
 		bkRating = sessionStorage.getItem(bk.id);
