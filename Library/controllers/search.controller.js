@@ -1,6 +1,6 @@
-var search_input = document.querySelector('.search_input');
+var searchInput = document.querySelector('.search_input');
 
-search_input.addEventListener("search", function() {
+searchInput.addEventListener("search", function() {
 	if (this.value !== "") {
 		newHistoryMessageAdd("You has searched for " + this.value);
 		search_myLib(this.value);
@@ -11,6 +11,22 @@ search_input.addEventListener("search", function() {
 });
 
 keyup();//initialize search field
+
+function keyup() {
+	searchInput.onkeyup = function(){
+	searchInput.onkeyup = null;
+	debounce(srch_deb.bind(this));
+	}; 
+}//keyup
+
+function srch_deb() {
+	keyup();
+	if ((this.value !== "") && (this.value.length > 2)) {
+		search_myLib(this.value);
+		} else {
+			fltrAll();  
+		} 
+};//srch_deb
 
 function search_myLib(search_string) {
 
