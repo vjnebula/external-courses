@@ -5,7 +5,7 @@
 	justify-content: stretch;
 	align-items:center;
 }
-#stars_parent {
+.stars_parent {
 	display: block;
 	height:15px;
 	margin-top:15px;

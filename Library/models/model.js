@@ -45,16 +45,16 @@ class Book {
 
 var myLib = {};
 
-function createABook (ABook, $id, $title, $author, $rating, $cost, $categories, $createdAt, $updatedAt, $image_url){
-	let book = new ABook($id, $title, $author, $rating, $cost, $categories, $createdAt, $updatedAt, $image_url);
+function createBook (Book, id, title, author, rating, cost, categories, createdAt, updatedAt, image_url){
+	let book = new Book(id, title, author, rating, cost, categories, createdAt, updatedAt, image_url);
 
 	myLib[book.id] = book;
-}//createABook
+}//createBook
 
 
 function parseMyLib() {
-	for (var b in myLib){
-		ContentAdd(myLib[b]);
+	for (var book in myLib){
+		ContentAdd(myLib[book]);
 		}
 }
 

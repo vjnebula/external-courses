@@ -1,20 +1,20 @@
-document.getElementById('file-input').onchange = getFiles;
+document.querySelector('.file-input').onchange = getFiles;
 
-document.getElementById('f_recent').onclick = fltrRecent;
-document.getElementById('f_favourite').onclick = fltrFavor;
-document.getElementById('f_nowReading').onclick = fltrNowReading;
-document.getElementById('f_free').onclick = fltrFree;
-document.getElementById('f_best').onclick = fltrBest;
-document.getElementById('f_all').onclick = fltrAll;
-document.getElementById('m_browse').onclick = fltrAll;
-document.getElementById('f_non_fiction').onclick = fltrNonFiction;
-document.getElementById('f_classic').onclick = fltrClassic;
-document.getElementById('f_must').onclick = fltrMustReadTitles;
-document.getElementById('f_popular').onclick = fltrPopular;
-document.getElementById('m_history').onclick = fltrHistory;
-document.getElementById('help').onclick = showHelp;
+document.querySelector('.f_recent').onclick = fltrRecent;
+document.querySelector('.f_favourite').onclick = fltrFavourite;
+document.querySelector('.f_nowReading').onclick = fltrNowReading;
+document.querySelector('.f_free').onclick = fltrFree;
+document.querySelector('.f_best').onclick = fltrBest;
+document.querySelector('.f_all').onclick = fltrAll;
+document.querySelector('.m_browse').onclick = fltrAll;
+document.querySelector('.f_non_fiction').onclick = fltrNonFiction;
+document.querySelector('.f_classic').onclick = fltrClassic;
+document.querySelector('.f_must').onclick = fltrMustReadTitles;
+document.querySelector('.f_popular').onclick = fltrPopular;
+document.querySelector('.m_history').onclick = fltrHistory;
+document.querySelector('.help').onclick = showHelp;
 
-var myDiv = document.getElementById('user');
+var myDiv = document.querySelector('.user');
 myDiv.onclick = drop;
 
 function fltrMustReadTitles() {

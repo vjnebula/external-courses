@@ -1,4 +1,4 @@
-#footer {
+.footer {
 	grid-area:foot;
 	display:flex;
 	flex-wrap:nowrap;

@@ -3,7 +3,7 @@ function drop() {
 	for (var elem of dropElements) {
 		elem.style.display = 'block';
 	}//for e
-	var myButton = document.getElementById('signIn');
+	var myButton = document.querySelector('.signIn');
 	myButton.onclick = userSignIn;
 	myDiv.onclick = dropClose;
 	myDiv.style.backgroundColor = '#15a4fa';

@@ -1,4 +1,4 @@
-#history_items {
+.history_items {
 	display:flex;
 	flex-direction:column;
 	overflow: auto;
@@ -6,16 +6,16 @@
 	margin-bottom: 0px;
 	height:350px;
 }
-#history_items::-webkit-scrollbar {
+.history_items::-webkit-scrollbar {
 	width: 15px;
 }
-#history_items::-webkit-scrollbar-track {
+.history_items::-webkit-scrollbar-track {
 	background: none; 
 }
-#history_items::-webkit-scrollbar-thumb {
+.history_items::-webkit-scrollbar-thumb {
 	border-radius:10px;
 }
-#history_items::-webkit-scrollbar-thumb:hover {
+.history_items::-webkit-scrollbar-thumb:hover {
 	background: #767d97;
 } 
 .history_item {

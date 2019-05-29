@@ -13,14 +13,16 @@ var myRequest = new Request('https://rsu-library-api.herokuapp.com/books', myIni
 fetch(myRequest).then(function(response) {
 						return response.json();
 							}).then(function(data) {
-									JSON.stringify(data);
-									for (var d of data) {
-										createABook (Book, d.id, d.title, d.author, d.rating, d.cost, d.categories, d.createdAt, d.updatedAt, d.image_url);
+									JSON.data;
+									for (var key of data) {
+										createBook (Book, key.id, key.title, key.author, key.rating, key.cost, key.categories, key.createdAt, key.updatedAt, key.image_url);
 									}
 								}).then(function(){
 									parseMyLib();
 									}).then(function (){
 										setTimeout(preloaderOff,500);
+									}).catch(function(ex) {
+										alert('parsing failed', ex)
 									});
 								
 

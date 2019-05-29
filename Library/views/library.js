@@ -3,7 +3,7 @@ function ContentAdd(bk) {
 	newDiv.innerHTML = "<div><img src='" + bk.image_url + "'></img></div>" + 
 		"<div class='book_title'>" + bk.title + "</div>" + 
 		"<div class='book_author'>" + bk.authorFullName+ "</div>" +
-		"<div id='stars_parent'>" + 
+		"<div class='stars_parent'>" + 
 			"<svg class='stars' pointer-events='bounding-box'>" + 
 				"<use x='00' class='SVGstars' xlink:href='#stL' />" + 
 				"<use x='00' class='SVGstars' xlink:href='#stR' />" + 
@@ -17,10 +17,10 @@ function ContentAdd(bk) {
 				"<use x='60' class='SVGstars' xlink:href='#stR' />" + 
 			"</svg>"+
 		"</div>";
-	newDiv.className = 'm_content';
+	newDiv.className = 'book_content';
 	newDiv.style.display = 'flex';
 	newDiv.id = bk.id;
-	document.getElementById('main_content').appendChild(newDiv);
+	document.querySelector('.main_content').appendChild(newDiv);
 	var bkRating = bk.rating;
 	if ( sessionStorage.getItem(bk.id) ){
 		bkRating = sessionStorage.getItem(bk.id);
@@ -30,40 +30,40 @@ function ContentAdd(bk) {
 
 function view() {
 	hideAll();
-	document.getElementById('main_content').style.flexDirection = 'row';
-	document.getElementById('main_content').style.flexWrap = 'wrap';
+	document.querySelector('.main_content').style.flexDirection = 'row';
+	document.querySelector('.main_content').style.flexWrap = 'wrap';
 }//view
 
 function fltrCat(cat_name) {
 	view();
-	for (var b in myLib) {
-		if (myLib[b].getCat(cat_name)) {
-				document.getElementById(myLib[b].id).style.display = 'flex';
+	for (var book in myLib) {
+		if (myLib[book].getCat(cat_name)) {
+				document.getElementById(myLib[book].id).style.display = 'flex';
 			}
 		}
 }//fltrCat
 
 function fltrAll() {
 	view();
-	for (var b in myLib) {
-				document.getElementById(myLib[b].id).style.display = 'flex';
-				document.getElementById(myLib[b].id).style.order = "";
+	for (var book in myLib) {
+				document.getElementById(myLib[book].id).style.display = 'flex';
+				document.getElementById(myLib[book].id).style.order = "";
 	}
 }//fltrAll
 
 function hideAll() {
-	var m_cont = document.getElementsByClassName("m_content");
-	for (var i = 0; i < m_cont.length; i++) {
-		m_cont[i].style.display = 'none';
+	var content = document.getElementsByClassName("book_content");
+	for (var i = 0; i < content.length; i++) {
+		content[i].style.display = 'none';
 	}
 }//hideAll
 
 function fltrPopular() {
 	fltrAll();
 	newHistoryMessageAdd("You used Most Popular filter");
-	for (var b in myLib) {
-		if (myLib[b].rating < 5){
-				document.getElementById(myLib[b].id).style.display = 'none';
+	for (var book in myLib) {
+		if (myLib[book].rating < 5){
+				document.getElementById(myLib[book].id).style.display = 'none';
 		}
 	}
 }//fltrPopular
@@ -71,29 +71,29 @@ function fltrPopular() {
 function fltrFree() {
 	fltrAll();
 	newHistoryMessageAdd("You used Free Books filter");
-	for (var b in myLib) {
-		if (myLib[b].cost > 50){
-				document.getElementById(myLib[b].id).style.display = 'none';
+	for (var book in myLib) {
+		if (myLib[book].cost > 50){
+				document.getElementById(myLib[book].id).style.display = 'none';
 		}
 	}
 }//fltrFree
 
-function fltrFavor () {
-	view();
-	for (var b in myLib) {
-		var id = myLib[b].id;
-		if ( localStorage.getItem(+id) ) {
-				if (localStorage.getItem(+id) > 2 ) {
+function fltrFavourite () {
+	hideAll();
+	for (var book in myLib) {
+		var id = myLib[book].id;
+		if ( sessionStorage.getItem(+id) ) {
+				if (sessionStorage.getItem(+id) > 4 ) {
 					document.getElementById(id).style.display = 'flex';
 				}
 		}
 	}
-}//fltrFavor
+}//fltrFavourite
 
 function fltrRecent() {
 	fltrAll();
 	newHistoryMessageAdd("You used Most Recent filter");
-	var list = document.getElementById('main_content');
+	var list = document.querySelector('.main_content');
 	var items = list.childNodes;
 	var itemsArr = [];
 	for (var i = 0; i< items.length; i++) {
@@ -125,10 +125,10 @@ function newHistoryMessageAdd(message) {
 	var newHistDiv = document.createElement("div");
 	newHistDiv.innerHTML = `<li><span>${message}</span>`;
 	newHistDiv.className = "history_item";
-	var hist_cont = document.getElementById('history_items');
-	hist_cont.insertBefore(newHistDiv, hist_cont.firstChild);
-	while(hist_cont.children.length > 3){
-		hist_cont.lastChild.remove();
+	var history_content = document.querySelector('.history_items');
+	history_content.insertBefore(newHistDiv, history_content.firstChild);
+	while(history_content.children.length > 3){
+		history_content.lastChild.remove();
 	}
 }//newHistoryMessageAdd
 
@@ -141,29 +141,29 @@ function fltrHistory () {
 										<svg><use class='svg_gray' xlink:href='#history_svg'/></svg>
 										${item}
 									</span>`;
-			newHistDiv.className = "m_content history_item";
-			var m_c = document.getElementById('main_content');
-			m_c.insertBefore(newHistDiv, m_c.firstChild);
-			m_c.style.flexDirection = 'column';
-			m_c.style.flexWrap = 'nowrap';
+			newHistDiv.className = "book_content history_item";
+			var contents = document.querySelector('.main_content');
+			contents.insertBefore(newHistDiv, contents.firstChild);
+			contents.style.flexDirection = 'column';
+			contents.style.flexWrap = 'nowrap';
 		});
 }//fltrHistory
 
 function preloaderOff() {
-	var sphere = document.getElementsByClassName('sphere');
-	for (var sph of sphere) {
-		sph.style.display = 'none'
+	var spheres = document.getElementsByClassName('sphere');
+	for (var sphere of spheres) {
+		sphere.style.display = 'none'
 	}
-	document.getElementById('space').style.animationName = "";
+	document.querySelector('.space').style.animationName = "";
 }
 
 function showHelp() {
 	hideAll();
 	var newHelpDiv = document.createElement("div");
 	newHelpDiv.innerHTML = myHelp;
-	newHelpDiv.className = "m_content m_help"
-	var m_c = document.getElementById('main_content');
-	m_c.appendChild(newHelpDiv);
-	m_c.style.flexDirection = 'column';
-	m_c.style.flexWrap = 'nowrap';
+	newHelpDiv.className = "book_content m_help"
+	var contents = document.querySelector('.main_content');
+	contents.appendChild(newHelpDiv);
+	contents.style.flexDirection = 'column';
+	contents.style.flexWrap = 'nowrap';
 }
