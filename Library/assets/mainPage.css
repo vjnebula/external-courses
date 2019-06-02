@@ -1,0 +1,63 @@
+.main_page {
+	grid-area:main;
+	display:grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 80px 40px auto;
+	background-color:#eef1f7;
+	grid-template-areas:
+	"title title"
+	"m_menu search"
+	"m_page m_page";
+}
+.page_title {
+	grid-area:title;
+	color:#444c63;
+	margin-top:25px;
+	padding-left:25px;
+	font-family: Proxima Nova;
+	font-size:22px;
+	border-bottom: 1px solid #dadfea;
+}
+.main_menu {
+	grid-area:m_menu;
+	display:flex;
+	flex-direction:row;
+	flex-wrap:nowrap;
+	align-items:center;
+	justify-content: start;
+	font-size:12px;
+	color: #78829d;
+	font-family: Proxima Nova;
+}
+.main_menu_item {
+	margin-left:20px;
+	padding:5px 10px;
+	white-space: nowrap;
+	border-radius: 10px;
+}
+.main_content {
+	grid-area:m_page;
+	display:flex;
+	flex-direction:row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	overflow: auto;
+	overflow-x:hidden;
+	height:auto;
+	width:100%;
+	background-color:white;
+	border-top: 1px solid #dadfea;
+}
+.book_content {
+	display:flex;
+	flex-direction:column;
+	justify-content: left;
+	justify-items:left;
+	padding-left:20px;
+	margin-top:30px;
+}
+.book_content > div {
+	width:200px;
+	heigh:350px;
+}
