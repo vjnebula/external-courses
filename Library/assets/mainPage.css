@@ -2,7 +2,7 @@
 	grid-area:main;
 	display:grid;
 	grid-template-columns: 50% 50%;
-	grid-template-rows: 80px 40px 780px;
+	grid-template-rows: 80px 40px auto;
 	background-color:#eef1f7;
 	grid-template-areas:
 	"title title"
@@ -19,7 +19,7 @@
 	border-bottom: 1px solid #dadfea;
 }
 .main_menu {
-	grdi-area:m_menu;
+	grid-area:m_menu;
 	display:flex;
 	flex-direction:row;
 	flex-wrap:nowrap;
@@ -33,6 +33,7 @@
 	margin-left:20px;
 	padding:5px 10px;
 	white-space: nowrap;
+	border-radius: 10px;
 }
 .main_content {
 	grid-area:m_page;
@@ -42,8 +43,9 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	overflow: auto;
-	height:900px;
-	width:auto;
+	overflow-x:hidden;
+	height:auto;
+	width:100%;
 	background-color:white;
 	border-top: 1px solid #dadfea;
 }

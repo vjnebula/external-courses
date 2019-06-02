@@ -45,6 +45,11 @@ function fltrCat(cat_name) {
 
 function fltrAll() {
 	view();
+	if ( sessionStorage.getItem('filterHighlighted') ) {
+		var oldElementClass = sessionStorage.getItem('filterHighlighted').split(" ");
+		document.querySelector("." + oldElementClass[1]).style.backgroundColor = '';
+	}
+		
 	for (var book in myLib) {
 				document.getElementById(myLib[book].id).style.display = 'flex';
 				document.getElementById(myLib[book].id).style.order = "";
@@ -58,8 +63,24 @@ function hideAll() {
 	}
 }//hideAll
 
+function filterHighlight(uiElement, colorBG) {
+	uiElement.style.backgroundColor = colorBG;
+	if ( sessionStorage.getItem('filterHighlighted') ) {
+		if (sessionStorage.getItem('filterHighlighted') !== uiElement.className){
+			var oldElementClass = sessionStorage.getItem('filterHighlighted').split(" ");
+			document.querySelector("." + oldElementClass[1]).style.backgroundColor = '';
+			sessionStorage.setItem('filterHighlighted', uiElement.className);
+		} else { 
+			sessionStorage.setItem('filterHighlighted', uiElement.className);
+			}
+	} else { 
+			sessionStorage.setItem('filterHighlighted', uiElement.className);
+			}
+}//filterHighlight
+
 function fltrPopular() {
 	fltrAll();
+	filterHighlight(this, "#97b3ce");
 	newHistoryMessageAdd("You used Most Popular filter");
 	for (var book in myLib) {
 		if (myLib[book].rating < 5){
@@ -70,6 +91,7 @@ function fltrPopular() {
 
 function fltrFree() {
 	fltrAll();
+	filterHighlight(this, "#97b3ce");
 	newHistoryMessageAdd("You used Free Books filter");
 	for (var book in myLib) {
 		if (myLib[book].cost > 50){
@@ -80,6 +102,7 @@ function fltrFree() {
 
 function fltrFavourite () {
 	hideAll();
+	filterHighlight(this, "#97b3ce");
 	for (var book in myLib) {
 		var id = myLib[book].id;
 		if ( sessionStorage.getItem(+id) ) {
@@ -92,6 +115,7 @@ function fltrFavourite () {
 
 function fltrRecent() {
 	fltrAll();
+	filterHighlight(this, "#97b3ce");
 	newHistoryMessageAdd("You used Most Recent filter");
 	var list = document.querySelector('.main_content');
 	var items = list.childNodes;
@@ -134,6 +158,10 @@ function newHistoryMessageAdd(message) {
 
 function fltrHistory () {
 	hideAll();
+	if ( sessionStorage.getItem('filterHighlighted') ) {
+		var oldElementClass = sessionStorage.getItem('filterHighlighted').split(" ");
+		document.querySelector("." + oldElementClass[1]).style.backgroundColor = '';
+	}
 	histArr.forEach(
 		function(item){
 			var newHistDiv = document.createElement("div");

@@ -19,26 +19,30 @@ myDiv.onclick = drop;
 
 function fltrMustReadTitles() {
 	fltrCat("must_read");
+	filterHighlight(this, "#15a4fa");
 	newHistoryMessageAdd("You used Must Read filter");
 }
 
 function fltrBest() {
 	fltrCat("best");
+	filterHighlight(this, "#15a4fa");
 	newHistoryMessageAdd("You used Best filter");
 }
 
 function fltrClassic() {
 	fltrCat("classic");
+	filterHighlight(this, "#15a4fa");
 	newHistoryMessageAdd("You used Classic filter");
 }
 
 function fltrNonFiction() {
 	fltrCat("non_fiction");
+	filterHighlight(this, "#15a4fa");
 	newHistoryMessageAdd("You used Non Fiction filter");
 }
 
 function fltrNowReading() {
-	fltrRecent();
+	//fltrRecent.bind(this);
 }
 
 
