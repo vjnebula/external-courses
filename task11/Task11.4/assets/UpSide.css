@@ -1,0 +1,46 @@
+		#up {
+			grid-area:up;
+			width:auto;
+			position:relative;
+			display:flex;
+			flex-direction:row;
+			flex-wrap:nowrap;
+			align-items:center;
+			justify-content: flex-end;
+			background-color: #2f364a;
+			font-family: Proxima Nova;
+			font-size: 13px;
+		}
+		.up_menu {
+			display:flex;
+			flex-wrap:nowrap;
+			justify-content: flex-end;
+			align-items:center;
+			height:100%;
+		}
+		.up_menu span {
+			padding-right:25px;
+			margin-left:10px; 
+			padding-right:-15px;
+		}
+		.up_li {
+			color:#19202e; 
+			margin-left:0px; 
+			margin-right:0px; 
+			width:3px;			
+		}
+		#user_logged {
+			color:white; 
+			white-space:nowrap; 
+			text-align:center;
+		}
+		#user_logged svg {
+			margin-left:20px; 
+			padding-right:20px;
+			width:11px; 
+			height:11px;
+		}
+		.avatar {
+			margin-right:10px; 
+			margin-left:10px;
+		}
